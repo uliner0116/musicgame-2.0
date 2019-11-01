@@ -143,7 +143,7 @@ namespace Game
             set
             {
                 combo = value;
-                if (combo >= 50 && combo % 5 == 0)//生命回復
+                if (combo >= 20 && combo % 5 == 0)//生命回復
                 {
                     if (life < maxLife)
                     {

@@ -22,7 +22,6 @@ public class Test1 : MonoBehaviour {
     {    //一開始就執行。
         load();
         Debug.Log("isDone " + isDone);
-        //宣告的物件 = 取得本身的父物件。
         if (isDone == 0)
         {
             for (int i = 1; i <= songList.Length; i++)
@@ -30,7 +29,7 @@ public class Test1 : MonoBehaviour {
                 listNumber = i;
                 songName = "song" + listNumber.ToString("D3");
                 //Debug.Log("do list songName: " + songName);
-                Debug.Log("Application.persistentDataPath:" + Application.persistentDataPath);B
+                Debug.Log("Application.persistentDataPath:" + Application.persistentDataPath);
                 txtName = songName + " Audio";
 
                 // StreamReader file = new StreamReader(System.IO.Path.Combine(Application.persistentDataPath, txtName));

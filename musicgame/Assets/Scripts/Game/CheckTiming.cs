@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using Common;
+using System.Collections.Generic;
 using UnityEngine;
 //using static UnityEditor.CameraEditor;
 
@@ -11,6 +12,7 @@ public class CheckTiming : MonoBehaviour{
     public int greatCheck;
     public int niceCheck;
     public int badCheck;
+    public AudioManager audioManager;
 
 
     public Dictionary<string, List<GameObject>> Timing = new Dictionary<string, List<GameObject>>()
@@ -65,7 +67,7 @@ public class CheckTiming : MonoBehaviour{
 
     public void Tap()
     {
-        Debug.Log("Tap");
+        Debug.Log("Tap Time:" + audioManager.bgm.time);
         if (tapLight.isActiveAndEnabled)
         {
             tapLight.Tap();
