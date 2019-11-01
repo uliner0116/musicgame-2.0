@@ -6,7 +6,7 @@ namespace FancyScrollView.Example02
     public class Cell : FancyScrollViewCell<ItemData, Context>
     {
         [SerializeField] Animator animator = default;
-        //   [SerializeField] Text message = default;
+        [SerializeField] Text message = default;
         [SerializeField] Text messageLarge = default;
         [SerializeField] Image image = default;
         [SerializeField] Image imageLarge = default;
@@ -43,7 +43,7 @@ namespace FancyScrollView.Example02
         }
         public override void UpdateContent(ItemData itemData)
         {
-            //  message.text = itemData.Message;
+            message.text = itemData.Message;
             messageLarge.name = itemData.Message;
             imageLarge.sprite = Resources.Load<Sprite>(itemData.imageName);
           var selected = Context.SelectedIndex == Index;
