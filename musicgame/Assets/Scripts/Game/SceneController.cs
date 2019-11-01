@@ -324,29 +324,29 @@ Life = 2500;
         {
             string loadJson;
             //讀取json檔案並轉存成文字格式
-#if UNITY_EDITOR
-            string filePath = System.IO.Path.Combine(Application.streamingAssetsPath, name);
-            Debug.Log("filePath:" + filePath);
-#elif UNITY_ANDROID
+//#if UNITY_EDITOR
+           // string filePath = System.IO.Path.Combine(Application.streamingAssetsPath, name);
+           // Debug.Log("filePath:" + filePath);
+//#elif UNITY_ANDROID
             //string filePath = Path.Combine("jar:file://" + Application.dataPath + "!assets/", name);
             //var filePath = Application.persistentDataPath + "/" +name;
             StreamReader file = new StreamReader(System.IO.Path.Combine(Application.persistentDataPath, name));
 
-#endif
+//#endif
 
-#if UNITY_EDITOR
+/*#if UNITY_EDITOR
             StreamReader file = new StreamReader(filePath);
             loadJson = file.ReadToEnd();
             file.Close();
 
-#elif UNITY_ANDROID
+#elif UNITY_ANDROID*/
                 loadJson = file.ReadToEnd();
                 file.Close();
            /* WWW reader = new WWW (filePath);
             while (!reader.isDone) {
             }
             loadJson = reader.text;*/
-#endif
+//#endif
             Life = 2000;
             //新增一個物件類型為playerState的變數 loadData
             volumeState loadData = new volumeState();

@@ -1680,7 +1680,9 @@ MonoBehaviour:
   - {fileID: 1969978943}
   - {fileID: 558561189}
   songDataAsset: {fileID: 4900000, guid: 9a7994c34d4d9924682ee37be7f8f462, type: 3}
-  Line: 0
+  Line: 3
+  songName: 
+  songname: 
 --- !u!54 &725222132
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -1811,7 +1813,9 @@ MonoBehaviour:
   - {fileID: 1969978943}
   - {fileID: 558561189}
   songDataAsset: {fileID: 4900000, guid: 9a7994c34d4d9924682ee37be7f8f462, type: 3}
-  Line: 0
+  Line: 3
+  songName: 
+  songname: 
 --- !u!54 &746865791
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -4328,7 +4332,9 @@ MonoBehaviour:
   - {fileID: 1969978943}
   - {fileID: 558561189}
   songDataAsset: {fileID: 4900000, guid: 9a7994c34d4d9924682ee37be7f8f462, type: 3}
-  Line: 0
+  Line: 3
+  songName: 
+  songname: 
 --- !u!54 &1828567422
 Rigidbody:
   m_ObjectHideFlags: 0

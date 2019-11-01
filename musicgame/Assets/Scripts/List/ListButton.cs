@@ -141,10 +141,8 @@ public class ListButton : MonoBehaviour
 
         //}
     }
-    // Use this for initialization
-    void Start()
+    public void isPresence()
     {
-        /*
         //取得這首歌的名稱
         father_gameObject = gameObject.transform.parent.gameObject;
         father_gameObject = father_gameObject.transform.parent.gameObject;
@@ -162,23 +160,48 @@ public class ListButton : MonoBehaviour
         father_gameObject = father_gameObject.transform.parent.gameObject;
         //song在三層後 設定音樂名稱
         songName = father_gameObject.name;
-        Debug.Log("songName" + songName);
+        for (int i = 1; i <= songList.Length; i++)
+        {
+            if (string.Compare(songList[i - 1], songName) == 0)
+            {
+                listNumber = i;
+                songName = "song" + listNumber.ToString("D3");
+                Debug.Log("songName: " + songName);
+                break;
+            }
+
+        }
 
         level = transform.name;
         Debug.Log("level!" + level);
+
         if (line == 3)
         {
             songTxt = Resources.Load<TextAsset>("3linetxt/" + songName + "/" + songName + "-" + level);
+            //Debug.Log("3Line:" + songTxt.name);
+            if (songTxt == null)
+            {
+                //Debug.Log("not found this level!"+ songTxt.name);
+                this.gameObject.SetActive(false);
+                //按化處理
+            }
         }else if (line == 6)
-        {
-            songTxt = Resources.Load<TextAsset>("6linetxt/" + songName + "/" + songName + "-" + level);
-        }
-        if (songTxt == null)
-        {
-            this.gameObject.SetActive(false);
-        }
-        */
-            this.GetComponent<Button>().onClick.AddListener(OnPathClick);
+            {
+                songTxt = Resources.Load<TextAsset>("6linetxt/" + songName + "/" + songName + "-" + level);
+            //Debug.Log("6Line:" + songTxt.name);
+            if (songTxt == null)
+                {
+                    //Debug.Log("not found this level!"+ songTxt.name);
+                    this.gameObject.SetActive(false);
+                    //按化處理
+                }
+            }
+     }
+    // Use this for initialization
+    void Start()
+    {
+        //isPresence();
+        this.GetComponent<Button>().onClick.AddListener(OnPathClick);
 
     }
 

@@ -30,7 +30,7 @@ public class Test1 : MonoBehaviour {
                 listNumber = i;
                 songName = "song" + listNumber.ToString("D3");
                 //Debug.Log("do list songName: " + songName);
-                Debug.Log("Application.persistentDataPath:" + Application.persistentDataPath);
+                Debug.Log("Application.persistentDataPath:" + Application.persistentDataPath);B
                 txtName = songName + " Audio";
 
                 // StreamReader file = new StreamReader(System.IO.Path.Combine(Application.persistentDataPath, txtName));

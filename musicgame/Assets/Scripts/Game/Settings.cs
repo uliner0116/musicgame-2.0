@@ -107,14 +107,14 @@ public class Settings : MonoBehaviour
 
     private void Start()
     {
-        /*if (Line == 3)
+        if (Line == 3)
         {
             this.songDataAsset = songData.Line3SongDataAsset;
         }
         else if (Line == 6)
         {
             this.songDataAsset = songData.Line6SongDataAsset;
-        }*/
+        }
         songName = audioManager.bgm.clip.name;
         songData.is3D = true;
         Score = 0;

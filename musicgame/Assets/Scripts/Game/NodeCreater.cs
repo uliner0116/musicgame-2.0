@@ -3,6 +3,7 @@ using Common.Data;
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.IO;
 using UnityEngine;
 namespace Game
 {
@@ -26,19 +27,34 @@ namespace Game
         float time1 = 0;
         Boolean inOver = false;
         public int Line;
+        public string songName;
+        public string songname;
+        float volume;
 
 
         void Awake()
         {
-            /*if (Line == 3)
+            if (Line == 3)
             {
                 this.songDataAsset = songData.Line3SongDataAsset;
             }
             else if (Line == 6)
             {
                 this.songDataAsset = songData.Line6SongDataAsset;
-            }*/
-            //audioManager.bgm.clip = songData.audio;
+            }
+            audioManager.bgm.clip = songData.audio;
+            songName = audioManager.bgm.clip.name;
+            //bgm音量設定
+
+            songname = songName;
+            string txtName;
+            txtName = songname + " Audio";
+            //Debug.Log("txtName " + txtName);
+            Debug.Log("songData.Line6SongDataAsset " + songData.Line6SongDataAsset);
+            Debug.Log("this.songDataAsset " + this.songDataAsset);
+            loadVolume(txtName);
+            audioManager.bgm.volume = volume;
+
             nodeParent = gameObject.transform.parent.gameObject;
            destination = GameObject.Find(nodeParent.name + "/TapPosition");
            lostPosition = GameObject.Find(nodeParent.name + "/lostPosition");
@@ -48,6 +64,42 @@ namespace Game
 
         }
 
+        public void loadVolume(string name)
+        {
+            string loadJson;
+            //讀取json檔案並轉存成文字格式
+            //#if UNITY_EDITOR
+            // string filePath = System.IO.Path.Combine(Application.streamingAssetsPath, name);
+            // Debug.Log("filePath:" + filePath);
+            //#elif UNITY_ANDROID
+            //string filePath = Path.Combine("jar:file://" + Application.dataPath + "!assets/", name);
+            //var filePath = Application.persistentDataPath + "/" +name;
+            StreamReader file = new StreamReader(System.IO.Path.Combine(Application.persistentDataPath, name));
+
+            //#endif
+
+            /*#if UNITY_EDITOR
+                        StreamReader file = new StreamReader(filePath);
+                        loadJson = file.ReadToEnd();
+                        file.Close();
+
+            #elif UNITY_ANDROID*/
+            loadJson = file.ReadToEnd();
+            file.Close();
+            /* WWW reader = new WWW (filePath);
+             while (!reader.isDone) {
+             }
+             loadJson = reader.text;*/
+            //#endif
+            //新增一個物件類型為playerState的變數 loadData
+            volumeState loadData = new volumeState();
+
+            //使用JsonUtillty的FromJson方法將存文字轉成Json
+            loadData = JsonUtility.FromJson<volumeState>(loadJson);
+
+            //驗證用，將sammaru的位置變更為json內紀錄的位置
+            volume = loadData.volume;
+        }
         // Update is called once per frame
         void Update()
         {

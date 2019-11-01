@@ -1023,7 +1023,9 @@ MonoBehaviour:
   - {fileID: 1970017762}
   - {fileID: 612509906}
   songDataAsset: {fileID: 4900000, guid: 80cd3949206f473408ba019076ab6073, type: 3}
-  Line: 0
+  Line: 6
+  songName: 
+  songname: 
 --- !u!65 &249481740
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -3323,7 +3325,9 @@ MonoBehaviour:
   - {fileID: 1970017762}
   - {fileID: 612509906}
   songDataAsset: {fileID: 4900000, guid: 80cd3949206f473408ba019076ab6073, type: 3}
-  Line: 0
+  Line: 6
+  songName: 
+  songname: 
 --- !u!54 &725222132
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -3457,7 +3461,9 @@ MonoBehaviour:
   - {fileID: 1970017762}
   - {fileID: 612509906}
   songDataAsset: {fileID: 4900000, guid: 80cd3949206f473408ba019076ab6073, type: 3}
-  Line: 0
+  Line: 6
+  songName: 
+  songname: 
 --- !u!54 &746865791
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -5247,7 +5253,9 @@ MonoBehaviour:
   - {fileID: 1970017762}
   - {fileID: 612509906}
   songDataAsset: {fileID: 4900000, guid: 80cd3949206f473408ba019076ab6073, type: 3}
-  Line: 0
+  Line: 6
+  songName: 
+  songname: 
 --- !u!65 &1376925413
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -7078,7 +7086,9 @@ MonoBehaviour:
   - {fileID: 1970017762}
   - {fileID: 612509906}
   songDataAsset: {fileID: 4900000, guid: 80cd3949206f473408ba019076ab6073, type: 3}
-  Line: 0
+  Line: 6
+  songName: 
+  songname: 
 --- !u!65 &1788253703
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -7481,7 +7491,9 @@ MonoBehaviour:
   - {fileID: 1970017762}
   - {fileID: 612509906}
   songDataAsset: {fileID: 4900000, guid: 80cd3949206f473408ba019076ab6073, type: 3}
-  Line: 0
+  Line: 6
+  songName: 
+  songname: 
 --- !u!54 &1828567422
 Rigidbody:
   m_ObjectHideFlags: 0
