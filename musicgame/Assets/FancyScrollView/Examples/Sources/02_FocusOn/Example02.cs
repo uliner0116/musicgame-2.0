@@ -20,11 +20,14 @@ namespace FancyScrollView.Example02
         [SerializeField] Button Swich_ALL = default;
         [SerializeField] Text Language = default;
         public GameObject page;
-        /*public GameObject ALL;
-        public GameObject Ch;
-        public GameObject En;
-        public GameObject Jp;
-        public GameObject Kr;*/
+        public AudioSource audioBgm;
+        string songName;
+        int listNumber = 0;
+        bool Chdown = false;
+        bool Endown = false;
+        bool Jpdown = false;
+        bool Krdown = false;
+        bool ALLdown = true;
         string[] name = { "butterfly" ,"Don't say lazy" ,"Im sorry" ,"LATATA" ,"LOVE" ,"Mirotic" ,"Oh!" ,"One Night In 北京" ,"PON PON PON" ,"Roly Poly" ,"SORRY SORRY" ,"Trouble Maker" ,"Tunak Tunak Tun" ,
         "YES or YES" ,"三國戀" ,"千年之戀" ,"不得不愛" ,"月牙灣" ,"回レ! 雪月花" ,"我不配" ,"我還年輕 我還年輕" ,"牡丹江" ,"東區東區" ,"直感" ,"星空" ,"夏祭り" ,"恋","恋は渾沌の隷也" ,
         "恋愛サーキュレーション" ,"夠愛" ,"將軍令" ,"華陽炎" ,"極楽浄土" ,"憂愁" ,"憨人" ,"樹枝孤鳥" ,"Burn It Down","Counting Stars","Good Time","I Really Like You","Maps","One More Night",
@@ -51,16 +54,47 @@ namespace FancyScrollView.Example02
 
             scrollView.UpdateData(items);
             scrollView.SelectCell(0);
+            audioBgm.clip = Resources.Load<AudioClip>("Audios/cAudio/song001");
+            audioBgm.Play(30);
+            audioBgm.volume = 0.5f;
         }
 
         void OnSelectionChanged(int index)
         {
-        /*  selectedItemInfo.text = name[index];
-            selectedItemInfo_Ch.text = Chinese[index];
-            selectedItemInfo_En.text = English[index];
-            selectedItemInfo_Jp.text = Janpan[index];
-            selectedItemInfo_Kr.text = Korean[index];
-         */  
+            if (Chdown == true)
+            {
+                songName = Chinese[index];
+            }
+            else if (Endown == true)
+            {
+                songName = English[index];
+            }
+            else if (Jpdown == true)
+            {
+                songName = Janpan[index];
+            }
+            else if (Krdown == true)
+            {
+                songName = Korean[index];
+            }
+            else if (ALLdown == true)
+            {
+                songName = name[index];
+            }
+
+
+            for (int i = 1; i <= name.Length; i++)
+            {
+                if (string.Compare(name[i - 1], songName) == 0)
+                {
+                    listNumber = i;
+                    songName = "song" + listNumber.ToString("D3");
+                    Debug.Log("songName: " + songName);
+                    break;
+                }
+            }
+            audioBgm.clip = Resources.Load<AudioClip>("Audios/cAudio/" + songName);
+            audioBgm.Play(30);
         }
 
         public void Active_Text()
@@ -72,6 +106,9 @@ namespace FancyScrollView.Example02
         }
         public void SW_Ch()
         {
+            audioBgm.clip = Resources.Load<AudioClip>("Audios/cAudio/song008");
+            audioBgm.Play(30);
+            audioBgm.volume = 0.5f;
             var items = Enumerable.Range(0, 15)
                 .Select(i => new ItemData(Chinese[i], Chinese[i]))
                 .ToArray();
@@ -79,9 +116,17 @@ namespace FancyScrollView.Example02
             scrollView.UpdateData(items);
             scrollView.SelectCell(0);
             page.SetActive(false);
+            Chdown = true;
+            Endown = false;
+            Jpdown = false;
+            Krdown = false;
+            ALLdown = false;
         }
         public void SW_En()
         {
+            audioBgm.clip = Resources.Load<AudioClip>("Audios/cAudio/song037");
+            audioBgm.Play(30);
+            audioBgm.volume = 0.5f;
             var items = Enumerable.Range(0, 11)
                 .Select(i => new ItemData(English[i], English[i]))
                 .ToArray();
@@ -89,9 +134,17 @@ namespace FancyScrollView.Example02
             scrollView.UpdateData(items);
             scrollView.SelectCell(0);
             page.SetActive(false);
+            Endown = true;
+            Chdown = false;
+            Jpdown = false;
+            Krdown = false;
+            ALLdown = false;
         }
         public void SW_Jp()
         {
+            audioBgm.clip = Resources.Load<AudioClip>("Audios/cAudio/song001");
+            audioBgm.Play(30);
+            audioBgm.volume = 0.5f;
             var items = Enumerable.Range(0, 10)
                 .Select(i => new ItemData(Janpan[i], Janpan[i]))
                 .ToArray();
@@ -99,9 +152,17 @@ namespace FancyScrollView.Example02
             scrollView.UpdateData(items);
             scrollView.SelectCell(0);
             page.SetActive(false);
+            Jpdown = true;
+            Endown = false;
+            Chdown = false;
+            Krdown = false;
+            ALLdown = false;
         }
         public void SW_Kr()
         {
+            audioBgm.clip = Resources.Load<AudioClip>("Audios/cAudio/song003");
+            audioBgm.Play(30);
+            audioBgm.volume = 0.5f;
             var items = Enumerable.Range(0, 10)
                 .Select(i => new ItemData(Korean[i], Korean[i]))
                 .ToArray();
@@ -109,9 +170,17 @@ namespace FancyScrollView.Example02
             scrollView.UpdateData(items);
             scrollView.SelectCell(0);
             page.SetActive(false);
+            Krdown = true;
+            Endown = false;
+            Chdown = false;
+            Jpdown = false;
+            ALLdown = false;
         }
         public void SW_ALL()
         {
+            audioBgm.clip = Resources.Load<AudioClip>("Audios/cAudio/song001");
+            audioBgm.Play(30);
+            audioBgm.volume = 0.5f;
             var items = Enumerable.Range(0, 46)
                 .Select(i => new ItemData(name[i], name[i]))
                 .ToArray();
@@ -119,6 +188,11 @@ namespace FancyScrollView.Example02
             scrollView.UpdateData(items);
             scrollView.SelectCell(0);
             page.SetActive(false);
+            ALLdown = true;
+            Endown = false;
+            Chdown = false;
+            Jpdown = false;
+            Krdown = false;
         }
     }
 }

@@ -25,6 +25,7 @@ namespace FancyScrollView.Example03
             button.onClick.AddListener(() => Context.OnCellClicked?.Invoke(Index));
             button3.onClick.AddListener(Active_Text);
             button6.onClick.AddListener(Active_Text2);
+
         }
 
         public void Active_Text()
