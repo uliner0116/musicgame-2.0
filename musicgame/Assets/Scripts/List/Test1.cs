@@ -12,48 +12,70 @@ public class Test1 : MonoBehaviour {
     int isDone;
     string[] songList = new string[]{
         "butterfly" ,"Don't say lazy" ,"Im sorry" ,"LATATA" ,"LOVE" ,"Mirotic" ,"Oh!" ,"One Night In 北京" ,"PON PON PON" ,"Roly Poly" ,"SORRY SORRY" ,"Trouble Maker" ,"Tunak Tunak Tun" ,
-        "YES or YES" ,"三國戀" ,"千年之戀" ,"不得不愛" ,"月牙灣" ,"回レ! 雪月花" ,"我不配" ,"我還年輕 我還年輕" ,"牡丹江" ,"東區東區" ,"直感" ,"星空" ,"夏祭り" ,"恋","恋は渾沌の隷也" ,
-        "恋愛サーキュレーション" ,"夠愛" ,"將軍令" ,"華陽炎" ,"極楽浄土" ,"憂愁" ,"憨人" ,"樹枝孤鳥" ,"Burn It Down","Counting Stars","Good Time","I Really Like You","Maps","One More Night",
+        "YES or YES" ,"三國戀" ,"千年之戀" ,"不得不愛" ,"月牙灣" ,"回レ! 雪月花" ,"我不配" ,"我還年輕 我還年輕" ,"牡丹江" ,"東區東區" ,"直感" ,"星空" ,"夏祭り" ,"恋は渾沌の隷也" ,
+        "恋愛サーキュレーション" ,"夠愛" ,"將軍令" ,"華陽炎" ,"極楽浄土" ,"憂愁" ,"憨人" ,"樹枝孤鳥" ,"恋" ,"Burn It Down","Counting Stars","Good Time","I Really Like You","Maps","One More Night",
         "Poker Face","Thunder","What Ive Done","What Makes You Beautiful"
     };
     private string txtName;
 
     void Start()
     {    //一開始就執行。
-        load();
-        Debug.Log("isDone " + isDone);
-        if (isDone == 0)
-        {
+        //load();
+        //Debug.Log("isDone " + isDone);
+        //if (isDone == 0)
+        //{
             for (int i = 1; i <= songList.Length; i++)
             {
                 listNumber = i;
                 songName = "song" + listNumber.ToString("D3");
                 //Debug.Log("do list songName: " + songName);
-                Debug.Log("Application.persistentDataPath:" + Application.persistentDataPath);
+                //Debug.Log("Application.persistentDataPath:" + Application.persistentDataPath);
                 txtName = songName + " Audio";
 
-                // StreamReader file = new StreamReader(System.IO.Path.Combine(Application.persistentDataPath, txtName));
-
-                //if (file == null)
-                // {
-                //Debug.Log("file null");
-                updatevolumeState();
-                // }
-
-                //StreamReader file1 = new StreamReader(System.IO.Path.Combine(Application.persistentDataPath, songName));
-
-
-                //if (file1 == null)
-                //{
-               // Debug.Log("file1 null");
+                FileInfo fi = new FileInfo(Application.persistentDataPath +"/" + songName);
+             if (fi.Exists)
+              {
+                  Debug.Log("File Exists! Began To Read." + fi);
+              }
+            else {
+                Debug.Log("<color=red>File Does Not Exist</color>" + fi);
                 updateMaxScore(1000);
-                //}          
             }
-            updateinitialization();
 
-            load();
-            Debug.Log("isDone " + isDone);
+            FileInfo fi1 = new FileInfo(Application.persistentDataPath + "/" + txtName);
+            if (fi1.Exists)
+            {
+                Debug.Log("File Exists! Began To Read." + fi1);
+            }
+            else
+            {
+                Debug.Log("<color=red>File Does Not Exist</color>" + fi1);
+                updatevolumeState();
+            }
+
+
+            // StreamReader file = new StreamReader(System.IO.Path.Combine(Application.persistentDataPath, txtName));
+
+            //if (file == null)
+            // {
+            //Debug.Log("file null");
+
+            // }
+
+            //StreamReader file1 = new StreamReader(System.IO.Path.Combine(Application.persistentDataPath, songName));
+
+
+            //if (file1 == null)
+            //{
+            // Debug.Log("file1 null");
+
+            //}          
         }
+            //updateinitialization();
+
+            //load();
+            //Debug.Log("isDone " + isDone);
+        //}
     }
     public class initialization
     {
