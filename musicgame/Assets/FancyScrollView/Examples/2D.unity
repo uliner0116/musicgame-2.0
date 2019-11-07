@@ -160,7 +160,7 @@ GameObject:
   - component: {fileID: 84931111}
   - component: {fileID: 84931110}
   m_Layer: 5
-  m_Name: Kr
+  m_Name: KR
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -335,7 +335,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: En
+  m_Text: EN
 --- !u!222 &180488196
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -403,10 +403,10 @@ MonoBehaviour:
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_FontData:
     m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
-    m_FontSize: 30
+    m_FontSize: 22
     m_FontStyle: 1
     m_BestFit: 0
-    m_MinSize: 3
+    m_MinSize: 2
     m_MaxSize: 40
     m_Alignment: 4
     m_AlignByGeometry: 0
@@ -436,7 +436,7 @@ GameObject:
   - component: {fileID: 423002642}
   - component: {fileID: 423002641}
   m_Layer: 5
-  m_Name: Ch
+  m_Name: CH
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -554,7 +554,7 @@ GameObject:
   - component: {fileID: 615623177}
   - component: {fileID: 615623176}
   m_Layer: 5
-  m_Name: En
+  m_Name: EN
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -890,7 +890,7 @@ GameObject:
   - component: {fileID: 771072457}
   - component: {fileID: 771072456}
   m_Layer: 5
-  m_Name: Jp
+  m_Name: JP
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1235,7 +1235,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Kr
+  m_Text: KR
 --- !u!222 &950678666
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -2174,7 +2174,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Ch
+  m_Text: CH
 --- !u!222 &1942793322
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -2371,7 +2371,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Jp
+  m_Text: JP
 --- !u!222 &1978680823
 CanvasRenderer:
   m_ObjectHideFlags: 0
