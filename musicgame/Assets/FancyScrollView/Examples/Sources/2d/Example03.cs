@@ -23,12 +23,14 @@ namespace FancyScrollView.Example03
         bool Jpdown = false;
         bool Krdown = false;
         bool ALLdown = true;
+        int playTime = 0;
 
         string[] name = { "butterfly" ,"Don't say lazy" ,"Im sorry" ,"LATATA" ,"LOVE" ,"Mirotic" ,"Oh!" ,"One Night In 北京" ,"PON PON PON" ,"Roly Poly" ,"SORRY SORRY" ,"Trouble Maker" ,"Tunak Tunak Tun" ,
         "YES or YES" ,"三國戀" ,"千年之戀" ,"不得不愛" ,"月牙灣" ,"回レ! 雪月花" ,"我不配" ,"我還年輕 我還年輕" ,"牡丹江" ,"東區東區" ,"直感" ,"星空" ,"夏祭り" ,"恋は渾沌の隷也" ,
         "恋愛サーキュレーション" ,"夠愛" ,"將軍令" ,"華陽炎" ,"極楽浄土" ,"憂愁" ,"憨人" ,"樹枝孤鳥" ,"恋" ,"Burn It Down","Counting Stars","Good Time","I Really Like You","Maps","One More Night",
         "Poker Face","Thunder","What Ive Done","What Makes You Beautiful"
         };
+        int[] chorusTime = { 53, 75, 35, 41, 39, 34, 42, 44, 75, 59, 59, 22, 46, 56, 69, 40, 84, 56, 58, 70, 121, 54, 56, 43, 59, 58, 67, 57, 81, 64, 47, 60, 64, 51, 98, 49, 50, 53, 48, 33, 38, 46, 43, 33, 43, 30 };
         string[] Chinese = { "One Night In 北京", "三國戀", "千年之戀", "不得不愛", "月牙灣", "我不配", "我還年輕 我還年輕", "牡丹江", "東區東區", "星空", "夠愛", "將軍令", "憂愁", "憨人", "樹枝孤鳥" };
         string[] English = { "Burn It Down","Counting Stars","Good Time","I Really Like You","Maps","One More Night","Poker Face","Thunder","What Ive Done","What Makes You Beautiful", "Tunak Tunak Tun" };
         string[] Janpan = { "butterfly", "Don't say lazy", "PON PON PON", "回レ! 雪月花", "夏祭り", "恋", "恋は渾沌の隷也", "恋愛サーキュレーション", "華陽炎", "極楽浄土" };
@@ -83,13 +85,24 @@ namespace FancyScrollView.Example03
                 if (string.Compare(name[i - 1], songName) == 0)
                 {
                     listNumber = i;
+                    playTime = chorusTime[listNumber-1];
                     songName = "song" + listNumber.ToString("D3");
                     Debug.Log("songName: " + songName);
+                    Debug.Log("playTime: " + playTime);
                     break;
                 }
             }
             audioBgm.clip = Resources.Load<AudioClip>("Audios/cAudio/" + songName);
-            audioBgm.Play(30);
+            audioBgm.PlayDelayed(1F);
+            audioBgm.time = playTime;
+        }
+        private void Update()
+        {
+            if(audioBgm.time >= playTime + 30 || audioBgm.time >= audioBgm.clip.length)
+            {
+                audioBgm.PlayDelayed(1.5F);
+                audioBgm.time = playTime;
+            }
         }
         public void Active_Text()
         {
@@ -115,7 +128,8 @@ namespace FancyScrollView.Example03
             Krdown = false;
             ALLdown =false;
             audioBgm.clip = Resources.Load<AudioClip>("Audios/cAudio/song008" );
-            audioBgm.Play(30);
+            audioBgm.PlayDelayed(1.5F);
+            audioBgm.time = 44;
             audioBgm.volume = 0.5f;
         }
         public void SW_En()
@@ -134,7 +148,8 @@ namespace FancyScrollView.Example03
             Krdown = false;
             ALLdown =false;
             audioBgm.clip = Resources.Load<AudioClip>("Audios/cAudio/song037" );
-            audioBgm.Play(30);
+            audioBgm.PlayDelayed(1F);
+            audioBgm.time = 50;
             audioBgm.volume = 0.5f;
         }
         public void SW_Jp()
@@ -153,7 +168,8 @@ namespace FancyScrollView.Example03
             Krdown = false;
             ALLdown = false;
             audioBgm.clip = Resources.Load<AudioClip>("Audios/cAudio/song001");
-            audioBgm.Play(30);
+            audioBgm.PlayDelayed(1F);
+            audioBgm.time = 53;
             audioBgm.volume = 0.5f;
         }
         public void SW_Kr()
@@ -173,7 +189,8 @@ namespace FancyScrollView.Example03
             Jpdown = false;
             ALLdown = false;
             audioBgm.clip = Resources.Load<AudioClip>("Audios/cAudio/song003");
-            audioBgm.Play(30);
+            audioBgm.PlayDelayed(1F);
+            audioBgm.time = 35;
             audioBgm.volume = 0.5f;
         }
         public void SW_ALL()
@@ -192,7 +209,8 @@ namespace FancyScrollView.Example03
             Jpdown = false;
             Krdown = false;
             audioBgm.clip = Resources.Load<AudioClip>("Audios/cAudio/song001");
-            audioBgm.Play(30);
+            audioBgm.PlayDelayed(1F);
+            audioBgm.time = 53;
             audioBgm.volume = 0.5f;
         }
     }

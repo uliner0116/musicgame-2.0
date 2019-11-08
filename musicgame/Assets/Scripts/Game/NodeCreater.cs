@@ -30,6 +30,7 @@ namespace Game
         public string songName;
         public string songname;
         float volume;
+        AudioClip noteAudio;
 
 
         void Awake()
@@ -44,6 +45,18 @@ namespace Game
             }
             audioManager.bgm.clip = songData.audio;
             songName = audioManager.bgm.clip.name;
+
+            //note音量設定
+            loadVolume("audioNote");
+            audioManager.note.volume = volume;
+
+            //note音設定
+            loadNoteAudio("notePlay");
+            audioManager.note.clip = noteAudio;
+
+            Debug.Log("bgm" + audioManager.bgm.volume);
+            Debug.Log("note" + audioManager.note.volume);
+
             //bgm音量設定
 
             songname = songName;
@@ -100,6 +113,42 @@ namespace Game
             //驗證用，將sammaru的位置變更為json內紀錄的位置
             volume = loadData.volume;
         }
+        public void loadNoteAudio(string name)
+        {
+            string loadJson;
+            //讀取json檔案並轉存成文字格式
+            //#if UNITY_EDITOR
+            //string filePath = System.IO.Path.Combine(Application.persistentDataPath, name);
+            // Debug.Log("filePath:" + filePath);
+            //#elif UNITY_ANDROID
+            //string filePath = Path.Combine("jar:file://" + Application.dataPath + "!assets/", name);
+            StreamReader file = new StreamReader(System.IO.Path.Combine(Application.persistentDataPath, name));
+
+            //#endif
+
+            /*#if UNITY_EDITOR
+                        StreamReader file = new StreamReader(filePath);
+                        loadJson = file.ReadToEnd();
+                        file.Close();
+            #elif UNITY_ANDROID*/
+            loadJson = file.ReadToEnd();
+            file.Close();
+            /*WWW reader = new WWW (filePath);
+            while (!reader.isDone) {
+            }
+            loadJson = reader.text;*/
+            //#endif
+
+            //新增一個物件類型為playerState的變數 loadData
+            noteState loadData = new noteState();
+
+            //使用JsonUtillty的FromJson方法將存文字轉成Json
+            loadData = JsonUtility.FromJson<noteState>(loadJson);
+
+            //驗證用，將sammaru的位置變更為json內紀錄的位置
+            noteAudio = loadData.noteAudio;
+        }
+
         // Update is called once per frame
         void Update()
         {

@@ -338,6 +338,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 2.5
+  audioManager: {fileID: 1462918908}
 --- !u!1 &173011156
 GameObject:
   m_ObjectHideFlags: 0
@@ -558,6 +559,7 @@ MonoBehaviour:
   greatCheck: 0
   niceCheck: 0
   badCheck: 0
+  audioManager: {fileID: 1462918908}
 --- !u!54 &184543769
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -1120,6 +1122,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 2.5
+  audioManager: {fileID: 1462918908}
 --- !u!1 &558561189
 GameObject:
   m_ObjectHideFlags: 0
@@ -2067,6 +2070,7 @@ MonoBehaviour:
   greatCheck: 0
   niceCheck: 0
   badCheck: 0
+  audioManager: {fileID: 1462918908}
 --- !u!54 &883527013
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -2188,6 +2192,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 2.5
+  audioManager: {fileID: 1462918908}
 --- !u!1 &940154204
 GameObject:
   m_ObjectHideFlags: 0
@@ -3226,7 +3231,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   comment: {fileID: 1797914876}
-  preview: 1
+  preview: 0
   scoreText: {fileID: 428677943}
   lifeText: {fileID: 1940175943}
   comboText: {fileID: 2105460101}
@@ -3245,7 +3250,7 @@ MonoBehaviour:
   songName: 
   maxScore: 0
   gameOverPanel: {fileID: 0}
-  randomTiming: 1
+  randomTiming: 0
 --- !u!114 &1452424331
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3280,6 +3285,41 @@ PrefabInstance:
     - target: {fileID: 1091033318089270, guid: 863863c9cfac4495392ace64acb22b9f, type: 3}
       propertyPath: m_Name
       value: AudioManger
+      objectReference: {fileID: 0}
+    - target: {fileID: 114869844196281292, guid: 863863c9cfac4495392ace64acb22b9f,
+        type: 3}
+      propertyPath: note
+      value: 
+      objectReference: {fileID: 1462918907}
+    - target: {fileID: 82820143173119776, guid: 863863c9cfac4495392ace64acb22b9f,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 82644627725208128, guid: 863863c9cfac4495392ace64acb22b9f,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 82579944498901280, guid: 863863c9cfac4495392ace64acb22b9f,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 82276171872727668, guid: 863863c9cfac4495392ace64acb22b9f,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 82280349257916982, guid: 863863c9cfac4495392ace64acb22b9f,
+        type: 3}
+      propertyPath: m_audioClip
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 82310854829588606, guid: 863863c9cfac4495392ace64acb22b9f,
+        type: 3}
+      propertyPath: m_audioClip
+      value: 
       objectReference: {fileID: 0}
     - target: {fileID: 4225879283151282, guid: 863863c9cfac4495392ace64acb22b9f, type: 3}
       propertyPath: m_LocalPosition.x
@@ -3325,16 +3365,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 114869844196281292, guid: 863863c9cfac4495392ace64acb22b9f,
-        type: 3}
-      propertyPath: note
-      value: 
-      objectReference: {fileID: 1462918907}
-    - target: {fileID: 82310854829588606, guid: 863863c9cfac4495392ace64acb22b9f,
-        type: 3}
-      propertyPath: m_audioClip
-      value: 
-      objectReference: {fileID: 8300000, guid: 441d055008e7884448569edcc0deadad, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 863863c9cfac4495392ace64acb22b9f, type: 3}
 --- !u!82 &1462918907 stripped
@@ -3558,6 +3588,7 @@ MonoBehaviour:
   greatCheck: 0
   niceCheck: 0
   badCheck: 0
+  audioManager: {fileID: 1462918908}
 --- !u!54 &1510789827
 Rigidbody:
   m_ObjectHideFlags: 0

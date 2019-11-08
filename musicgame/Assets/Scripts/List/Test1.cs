@@ -35,7 +35,7 @@ public class Test1 : MonoBehaviour {
                 FileInfo fi = new FileInfo(Application.persistentDataPath +"/" + songName);
              if (fi.Exists)
               {
-                  Debug.Log("File Exists! Began To Read." + fi);
+                  //Debug.Log("File Exists! Began To Read." + fi);
               }
             else {
                 Debug.Log("<color=red>File Does Not Exist</color>" + fi);
@@ -45,7 +45,7 @@ public class Test1 : MonoBehaviour {
             FileInfo fi1 = new FileInfo(Application.persistentDataPath + "/" + txtName);
             if (fi1.Exists)
             {
-                Debug.Log("File Exists! Began To Read." + fi1);
+                //Debug.Log("File Exists! Began To Read." + fi1);
             }
             else
             {

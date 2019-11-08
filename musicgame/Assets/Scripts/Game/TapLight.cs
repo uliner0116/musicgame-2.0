@@ -1,9 +1,11 @@
-﻿using UnityEngine;
+﻿using Common;
+using UnityEngine;
 
 public class TapLight : MonoBehaviour
 {
     public float speed;
     private Renderer renderer;
+    public AudioManager audioManager;
 
     private void Awake()
     {
@@ -18,6 +20,7 @@ public class TapLight : MonoBehaviour
     private void Default()
     {
         renderer.material.color = new Color(renderer.material.color.r, renderer.material.color.g, renderer.material.color.b, 1f);
+        audioManager.note.Play();
     }
 
     private void Start()

@@ -12,7 +12,6 @@ public class TapGetter : MonoBehaviour
         {
             for (int i = 0; i < Input.touchCount; i++)
             {
-                Debug.Log("touch");
                 Touch touch = Input.GetTouch(i);
                 Ray ray = Camera.main.ScreenPointToRay(touch.position);
                 RaycastHit raycast_hit = new RaycastHit();

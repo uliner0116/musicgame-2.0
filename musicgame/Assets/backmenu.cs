@@ -25,7 +25,7 @@ public class backmenu : MonoBehaviour {
     void ClickEvent()
     {
         //生產canvasPrefab
-        Application.LoadLevel(bmenu);
+        SceneManager.LoadScene(bmenu);
     }
     
 }

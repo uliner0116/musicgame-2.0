@@ -10,7 +10,6 @@ public class SettingChange : MonoBehaviour
 {
 
     // public GameObject MusicPlayer;
-    public AudioSource audioBgm;
     public AudioSource audioNote;
     public Text noteNumberText;
     int noteNumber = 0;
@@ -30,7 +29,6 @@ public class SettingChange : MonoBehaviour
 
     public void SettingChangeClick()
     {
-        setVolume("audioBgm", audioBgm);
         setVolume("audioNote", audioNote);
         setNote("notePlay");
      //   SceneManager.LoadScene("Menu");
@@ -43,7 +41,7 @@ public class SettingChange : MonoBehaviour
         //將myPlayer轉換成json格式的字串
         string saveString = JsonUtility.ToJson(myVlume);
         //將字串saveString存到硬碟中
-        StreamWriter file = new StreamWriter(System.IO.Path.Combine(Application.streamingAssetsPath, Name));
+        StreamWriter file = new StreamWriter(System.IO.Path.Combine(Application.persistentDataPath, Name));
         file.Write(saveString);
         file.Close();
     }
@@ -56,7 +54,7 @@ public class SettingChange : MonoBehaviour
         //將myPlayer轉換成json格式的字串
         string saveString = JsonUtility.ToJson(myNote);
         //將字串saveString存到硬碟中
-        StreamWriter file = new StreamWriter(System.IO.Path.Combine(Application.streamingAssetsPath, Name));
+        StreamWriter file = new StreamWriter(System.IO.Path.Combine(Application.persistentDataPath, Name));
         file.Write(saveString);
         file.Close();
     }

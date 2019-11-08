@@ -178,15 +178,15 @@ namespace Game
             audioManager.bgm.clip = songData.audio;
             Life = 1000;
             //note音量設定
-            //loadVolume("audioNote");
-            //audioManager.note.volume = volume;
+            loadVolume("audioNote");
+            audioManager.note.volume = volume;
 Life = 2500;
             //note音設定
-            /*loadNoteAudio("notePlay");
+            loadNoteAudio("notePlay");
             audioManager.note.clip = noteAudio;
             
             Debug.Log("bgm" + audioManager.bgm.volume);
-            Debug.Log("note" + audioManager.note.volume);*/
+            Debug.Log("note" + audioManager.note.volume);
 
 
             songName = audioManager.bgm.clip.name;
@@ -362,27 +362,27 @@ Life = 2500;
         {
             string loadJson;
             //讀取json檔案並轉存成文字格式
-#if UNITY_EDITOR
-            string filePath = System.IO.Path.Combine(Application.streamingAssetsPath, name);
-            Debug.Log("filePath:" + filePath);
-#elif UNITY_ANDROID
+//#if UNITY_EDITOR
+            //string filePath = System.IO.Path.Combine(Application.persistentDataPath, name);
+           // Debug.Log("filePath:" + filePath);
+//#elif UNITY_ANDROID
             //string filePath = Path.Combine("jar:file://" + Application.dataPath + "!assets/", name);
             StreamReader file = new StreamReader(System.IO.Path.Combine(Application.persistentDataPath, name));
 
-#endif
+//#endif
 
-#if UNITY_EDITOR
+/*#if UNITY_EDITOR
             StreamReader file = new StreamReader(filePath);
             loadJson = file.ReadToEnd();
             file.Close();
-#elif UNITY_ANDROID
+#elif UNITY_ANDROID*/
                 loadJson = file.ReadToEnd();
                 file.Close();
             /*WWW reader = new WWW (filePath);
             while (!reader.isDone) {
             }
             loadJson = reader.text;*/
-#endif
+//#endif
 
             //新增一個物件類型為playerState的變數 loadData
             noteState loadData = new noteState();
