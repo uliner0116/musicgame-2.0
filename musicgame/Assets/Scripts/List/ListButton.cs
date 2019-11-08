@@ -13,6 +13,12 @@ public class ListButton : MonoBehaviour
     string level;
     string lineName;
     public bool is3D;
+    public bool changecolor2;
+    public Button thisbutton;
+    public Image t;
+    public Image t1;
+    public Image t2;
+    public Image t3;
     TextAsset songTxt;
     GameObject father_gameObject;   //宣告一個GameObject(用來放取得的父物件)。
     //歌名對照表
@@ -27,118 +33,136 @@ public class ListButton : MonoBehaviour
     //點擊時呼叫
     public void OnPathClick()
     {
-        
-        //取得這首歌的名稱
-        father_gameObject = gameObject.transform.parent.gameObject;
-        father_gameObject = father_gameObject.transform.parent.gameObject;
-        //line在兩層後 設定line相關資訊
-        lineName = father_gameObject.name;
-        if (string.Compare(lineName, "Line3") == 0)
+        //changecolor2 = true;
+        if (changecolor2 == false)
         {
-            line = 3;
-        } else if (string.Compare(lineName, "Line6") == 0)
-        {
-            line = 6;
+            Debug.Log(changecolor2);
+
+            changecolor2 = true;
+            t.color = new Color32(255, 255, 255, 255);
+            t1.color = new Color32(0, 0, 0, 255);
+            t2.color = new Color32(0, 0, 0, 255);
+            t3.color = new Color32(0, 0, 0, 255);
+
         }
-        Debug.Log("line: " + line);
-        father_gameObject = father_gameObject.transform.parent.gameObject;
-        //song在三層後 設定音樂名稱
-        songName = father_gameObject.name;
-        for (int i=1;i<= songList.Length; i++)
+        else if (changecolor2 == true)
         {
-           if( string.Compare(songList[i-1], songName) == 0)
+            Debug.Log(changecolor2);
+            //取得這首歌的名稱
+            father_gameObject = gameObject.transform.parent.gameObject;
+          //  father_gameObject = father_gameObject.transform.parent.gameObject;
+            //line在兩層後 設定line相關資訊
+            lineName = father_gameObject.name;
+            if (string.Compare(lineName, "Line3") == 0)
             {
-                listNumber = i;
-                songName = "song"+listNumber.ToString("D3");
-                Debug.Log("songName: " + songName);
-                break;
+                line = 3;
             }
-        }
-
-        level = transform.name;
-        Debug.Log("level!" + level);
-        
-        // Debug.Log(Path.GetExtension("E:\\user\\Desktop\\musicgame\\musicgame\\musicgame\\Assets\\Audios\\cAudio\\Don't say lazy-cut.mp3"));      
-        // Game.SceneController.songDataAsset = Resources.Load<TextAsset>(noteTxt);
-
-        /*if (Path.GetExtension(transform.name) == ".mp3" ||
-            Path.GetExtension(transform.name) == ".aif" ||
-            Path.GetExtension(transform.name) == ".wav" ||
-            Path.GetExtension(transform.name) == ".ogg")
-        {*/
-        Debug.Log("in");
-        //string audio = "file://" + transform.name;
-        //string audio = "Audios/cAudio/回レ! 雪月花cut.mp3";
-        //WWW www = new WWW(audio);
-        //Debug.Log("www:" + www.url);
-        //string noteTxt = "file://" + transform.name;
-        //string noteTxt = "notetxt/回レ! 雪月花.txt";
-
-        //if()
-        //while (!www.isDone) { }
-        //Game.SceneController.songDataAsset= Resources.Load<TextAsset>(noteTxt);
-        //songData.audio = www.GetAudioClip();
-        songData.audio = Resources.Load<AudioClip>("Audios/cAudio/" + songName);
-        Debug.Log("audio: " + songData.audio);
-        if (line == 3)
-        {
-            songTxt = Resources.Load<TextAsset>("3linetxt/" + songName + "/" + songName + "-" + level);
-            if (songTxt == null)
+            else if (string.Compare(lineName, "Line6") == 0)
             {
-                Debug.Log("not found this level!");
-                //this.gameObject.SetActive(false);
-                //按化處理
+                line = 6;
             }
-            else {
-                songData.Line3SongDataAsset = Resources.Load<TextAsset>("3linetxt/" + songName + "/" + songName + "-" + level);
-                Debug.Log("Line3SongDataAsset:" + songData.Line3SongDataAsset.name);
-                // Debug.Log("notetxt:" + songData.);
+            Debug.Log("line: " + line);
+            father_gameObject = father_gameObject.transform.parent.gameObject;
+            //song在三層後 設定音樂名稱
+            songName = father_gameObject.name;
+            for (int i = 1; i <= songList.Length; i++)
+            {
+                if (string.Compare(songList[i - 1], songName) == 0)
+                {
+                    listNumber = i;
+                    songName = "song" + listNumber.ToString("D3");
+                    Debug.Log("songName: " + songName);
+                    break;
+                }
             }
 
-        } else if (line == 6)
-        {
-            songTxt = Resources.Load<TextAsset>("6linetxt/" + songName + "/" + songName + "-" + level);
-            if (songTxt == null)
-            {
-                Debug.Log("not found this level!");
-                //this.gameObject.SetActive(false);
-                //按化處理
-            }
-            else
-            {
-                songData.Line6SongDataAsset = Resources.Load<TextAsset>("6linetxt/" + songName + "/" + songName + "-" + level);
-                Debug.Log("Line6SongDataAsset:" + songData.Line6SongDataAsset.name);
-            }
-        }
-        Debug.Log("audio:" + songData.audio.name);
+            level = transform.name;
+            Debug.Log("level!" + level);
 
-        //轉跳sence
-        if (songTxt != null)
-        {
+            // Debug.Log(Path.GetExtension("E:\\user\\Desktop\\musicgame\\musicgame\\musicgame\\Assets\\Audios\\cAudio\\Don't say lazy-cut.mp3"));      
+            // Game.SceneController.songDataAsset = Resources.Load<TextAsset>(noteTxt);
+
+            /*if (Path.GetExtension(transform.name) == ".mp3" ||
+                Path.GetExtension(transform.name) == ".aif" ||
+                Path.GetExtension(transform.name) == ".wav" ||
+                Path.GetExtension(transform.name) == ".ogg")
+            {*/
+            Debug.Log("in");
+            //string audio = "file://" + transform.name;
+            //string audio = "Audios/cAudio/回レ! 雪月花cut.mp3";
+            //WWW www = new WWW(audio);
+            //Debug.Log("www:" + www.url);
+            //string noteTxt = "file://" + transform.name;
+            //string noteTxt = "notetxt/回レ! 雪月花.txt";
+
+            //if()
+            //while (!www.isDone) { }
+            //Game.SceneController.songDataAsset= Resources.Load<TextAsset>(noteTxt);
+            //songData.audio = www.GetAudioClip();
+            songData.audio = Resources.Load<AudioClip>("Audios/cAudio/" + songName);
+            Debug.Log("audio: " + songData.audio);
             if (line == 3)
             {
-                if(is3D == false)
+                songTxt = Resources.Load<TextAsset>("3linetxt/" + songName + "/" + songName + "-" + level);
+                if (songTxt == null)
                 {
-                    SceneManager.LoadScene("Game 3ver");
-                }else
-                {
-                    SceneManager.LoadScene("3DGame 3ver");
-                }
-                
-            }
-            else if (line == 6)
-            {
-                if (is3D == false)
-                {
-                    SceneManager.LoadScene("Game 6ver");
+                    Debug.Log("not found this level!");
+                    //this.gameObject.SetActive(false);
+                    //按化處理
                 }
                 else
                 {
-                    SceneManager.LoadScene("3DGame 6ver");
+                    songData.Line3SongDataAsset = Resources.Load<TextAsset>("3linetxt/" + songName + "/" + songName + "-" + level);
+                    Debug.Log("Line3SongDataAsset:" + songData.Line3SongDataAsset.name);
+                    // Debug.Log("notetxt:" + songData.);
+                }
+
+            }
+            else if (line == 6)
+            {
+                songTxt = Resources.Load<TextAsset>("6linetxt/" + songName + "/" + songName + "-" + level);
+                if (songTxt == null)
+                {
+                    Debug.Log("not found this level!");
+                    //this.gameObject.SetActive(false);
+                    //按化處理
+                }
+                else
+                {
+                    songData.Line6SongDataAsset = Resources.Load<TextAsset>("6linetxt/" + songName + "/" + songName + "-" + level);
+                    Debug.Log("Line6SongDataAsset:" + songData.Line6SongDataAsset.name);
+                }
+            }
+            Debug.Log("audio:" + songData.audio.name);
+
+            //轉跳sence
+            if (songTxt != null)
+            {
+                if (line == 3)
+                {
+                    if (is3D == false)
+                    {
+                        SceneManager.LoadScene("Game 3ver");
+                    }
+                    else
+                    {
+                        SceneManager.LoadScene("3DGame 3ver");
+                    }
+
+                }
+                else if (line == 6)
+                {
+                    if (is3D == false)
+                    {
+                        SceneManager.LoadScene("Game 6ver");
+                    }
+                    else
+                    {
+                        SceneManager.LoadScene("3DGame 6ver");
+                    }
                 }
             }
         }
-
         //}
     }
     public void isPresence()
