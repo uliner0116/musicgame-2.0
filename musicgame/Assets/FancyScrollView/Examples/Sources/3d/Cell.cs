@@ -11,8 +11,8 @@ namespace FancyScrollView.Example02
         [SerializeField] Image image = default;
         [SerializeField] Image imageLarge = default;
         [SerializeField] Button button = default;
-        [SerializeField] Button button3 = default;
-        [SerializeField] Button button6 = default;
+       // [SerializeField] Button button3 = default;
+      //  [SerializeField] Button button6 = default;
         public GameObject page;
         public GameObject page2;
         static class AnimatorHash
@@ -23,8 +23,8 @@ namespace FancyScrollView.Example02
         void Start()
         {
             button.onClick.AddListener(() => Context.OnCellClicked?.Invoke(Index));
-            button3.onClick.AddListener(Active_Text);
-            button6.onClick.AddListener(Active_Text2);
+           // button3.onClick.AddListener(Active_Text);
+          //  button6.onClick.AddListener(Active_Text2);
         }
         public void Active_Text()
         {
@@ -53,13 +53,15 @@ namespace FancyScrollView.Example02
           */
             if (selected)
             {
-                button3.gameObject.SetActive(true);
-                button6.gameObject.SetActive(true);
+                page.SetActive(true);
+                page2.SetActive(true);
+                // button3.gameObject.SetActive(true);
+                // button6.gameObject.SetActive(true);
             }
             else
             {
-                button3.gameObject.SetActive(false);
-                button6.gameObject.SetActive(false);
+             //   button3.gameObject.SetActive(false);
+               // button6.gameObject.SetActive(false);
                 page.SetActive(false);
                 page2.SetActive(false);
             }

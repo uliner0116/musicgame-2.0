@@ -19,6 +19,7 @@ public class ListButton : MonoBehaviour
     public Image t1;
     public Image t2;
     public Image t3;
+    public Image piano;
     TextAsset songTxt;
     GameObject father_gameObject;   //宣告一個GameObject(用來放取得的父物件)。
     //歌名對照表
@@ -40,10 +41,32 @@ public class ListButton : MonoBehaviour
 
             changecolor2 = true;
             t.color = new Color32(255, 255, 255, 255);
-            t1.color = new Color32(0, 0, 0, 255);
-            t2.color = new Color32(0, 0, 0, 255);
-            t3.color = new Color32(0, 0, 0, 255);
-
+            t1.sprite =Resources.Load("star4",typeof(Sprite))as Sprite;
+            t2.sprite = Resources.Load("star4", typeof(Sprite)) as Sprite;
+            t3.sprite = Resources.Load("star4", typeof(Sprite)) as Sprite;
+            father_gameObject = gameObject.transform.parent.gameObject;
+            lineName = father_gameObject.name;
+            if (string.Compare(lineName, "Line3") == 0)
+            {
+                line = 3;
+                piano.sprite = Resources.Load("鋼琴鍵 3 交換", typeof(Sprite)) as Sprite;
+            }
+            else if (string.Compare(lineName, "Line6") == 0)
+            {
+                line = 6;
+                piano.sprite = Resources.Load("鋼琴6交換", typeof(Sprite)) as Sprite;
+            }
+           /*   father_gameObject = father_gameObject.transform.parent.gameObject;
+            level = transform.name;
+          if (string.Compare(level, "Easy") == 0)
+            {
+                t2.color = new Color32(0, 0, 0, 0);
+                t3.color = new Color32(0, 0, 0, 0);
+            }
+            else if (string.Compare(level, "Normal") == 0)
+            {
+                t3.color = new Color32(0, 0, 0, 0);
+            }*/
         }
         else if (changecolor2 == true)
         {
