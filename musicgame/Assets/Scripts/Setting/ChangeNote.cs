@@ -20,16 +20,31 @@ public class ChangeNote : MonoBehaviour
     }
     public void noteChangeClick()
     {
-        NoteNumber = int.Parse(noteNumberText.text);
-        if (string.Compare(name, "right") == 0 )
+        var get = noteNumberText.text;
+        if (string.Compare(get, "X") == 0)
         {
-           
+            NoteNumber = 5;
+        }
+        else
+        {
+            NoteNumber = int.Parse(noteNumberText.text);
+        }
+        if (string.Compare(name, "right") == 0 )
+        {       
             NoteNumber++;
-            if (NoteNumber > 4)
+            if (NoteNumber > 5)
             {
                 NoteNumber = 1;
             }
-            noteNumberText.text = "" + NoteNumber; ;
+            if(NoteNumber == 5)
+            {
+                noteNumberText.text = "X";
+            }
+            else
+            {
+                noteNumberText.text = "" + NoteNumber; ;
+            }
+            
            
         }else if (string.Compare(name, "left") == 0)
         {
@@ -37,9 +52,16 @@ public class ChangeNote : MonoBehaviour
             NoteNumber--;
             if (NoteNumber <1)
             {
-                NoteNumber = 4;
+                NoteNumber = 5;
             }
-            noteNumberText.text = "" + NoteNumber; ;
+            if (NoteNumber == 5)
+            {
+                noteNumberText.text = "X";
+            }
+            else
+            {
+                noteNumberText.text = "" + NoteNumber; ;
+            }
         }
     }
 }

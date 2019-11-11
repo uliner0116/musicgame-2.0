@@ -21,7 +21,17 @@ public class playNote : MonoBehaviour
     }
     public void notePlayClick()
     {
-        noteNumber = int.Parse(noteNumberText.text);
+        var get = noteNumberText.text;
+        Debug.Log("get" + get);
+        if (string.Compare(get, "X") == 0)
+        {
+            Debug.Log("in getX");
+            noteNumber = 5;
+        }
+        else
+        {
+            noteNumber = int.Parse(noteNumberText.text);
+        }      
         Debug.Log("noteNumber"+ noteNumber);
         playNotes();
     }

@@ -13,7 +13,7 @@ public class ListButton : MonoBehaviour
     string level;
     string lineName;
     public bool is3D;
-    public bool changecolor2;
+    public bool changecolor2 = false;
     public Button thisbutton;
     public Image t;
     public Image t1;
@@ -25,6 +25,7 @@ public class ListButton : MonoBehaviour
     GameObject father_gameObject;   //宣告一個GameObject(用來放取得的父物件)。
     //歌名對照表
     int listNumber=0;
+
     string[] songList = new string[]{
         "butterfly" ,"Don't say lazy" ,"Im sorry" ,"LATATA" ,"LOVE" ,"Mirotic" ,"Oh!" ,"One Night In 北京" ,"PON PON PON" ,"Roly Poly" ,"SORRY SORRY" ,"Trouble Maker" ,"Tunak Tunak Tun" ,
         "YES or YES" ,"三國戀" ,"千年之戀" ,"不得不愛" ,"月牙灣" ,"回レ! 雪月花" ,"我不配" ,"我還年輕 我還年輕" ,"牡丹江" ,"東區東區" ,"直感" ,"星空" ,"夏祭り" ,"恋は渾沌の隷也" ,
@@ -36,7 +37,7 @@ public class ListButton : MonoBehaviour
     public void OnPathClick()
     {
         //changecolor2 = true;
-        
+        Debug.Log("in touch" + changecolor2);
         if (changecolor2 == false)
         {
             Debug.Log(changecolor2);
@@ -52,31 +53,33 @@ public class ListButton : MonoBehaviour
             lineName = father_gameObject.name;
             if (string.Compare(lineName, "Line3") == 0)
             {
+                Debug.Log("lineName Line3");
                 line = 3;
                 piano.sprite = Resources.Load("鋼琴鍵 3 交換", typeof(Sprite)) as Sprite;
             }
             else if (string.Compare(lineName, "Line6") == 0)
             {
+                Debug.Log("lineName Line6");
                 line = 6;
                 piano.sprite = Resources.Load("鋼琴6交換", typeof(Sprite)) as Sprite;
             }
-          /*father_gameObject = father_gameObject.transform.parent.gameObject;
-            level = transform.name;
-          if (string.Compare(level, "Easy") == 0)
-            {
-                t2.color = new Color32(0, 0, 0, 0);
-                t3.color = new Color32(0, 0, 0, 0);
-            }
-            else if (string.Compare(level, "Normal") == 0)
-            {
-                t3.color = new Color32(0, 0, 0, 0);
-            }
-            else if (string.Compare(level, "Hard") == 0)
-            {
-                t3.color = new Color32(0, 0, 0, 0);
-            }*/
-        }
-        else if (changecolor2 == true)
+            Debug.Log(changecolor2);
+            /*father_gameObject = father_gameObject.transform.parent.gameObject;
+              level = transform.name;
+            if (string.Compare(level, "Easy") == 0)
+              {
+                  t2.color = new Color32(0, 0, 0, 0);
+                  t3.color = new Color32(0, 0, 0, 0);
+              }
+              else if (string.Compare(level, "Normal") == 0)
+              {
+                  t3.color = new Color32(0, 0, 0, 0);
+              }
+              else if (string.Compare(level, "Hard") == 0)
+              {
+                  t3.color = new Color32(0, 0, 0, 0);
+              }*/
+        }else if (changecolor2 == true)
         {
             Debug.Log(changecolor2);
             //取得這首歌的名稱
@@ -130,8 +133,7 @@ public class ListButton : MonoBehaviour
             //while (!www.isDone) { }
             //Game.SceneController.songDataAsset= Resources.Load<TextAsset>(noteTxt);
             //songData.audio = www.GetAudioClip();
-            songData.audio = Resources.Load<AudioClip>("Audios/cAudio/" + songName);
-            Debug.Log("audio: " + songData.audio);
+           
             if (line == 3)
             {
                 songTxt = Resources.Load<TextAsset>("3linetxt/" + songName + "/" + songName + "-" + level);
@@ -143,6 +145,8 @@ public class ListButton : MonoBehaviour
                 }
                 else
                 {
+                    songData.audio = Resources.Load<AudioClip>("Audios/cAudio/" + songName);
+                    Debug.Log("audio: " + songData.audio.name);
                     songData.Line3SongDataAsset = Resources.Load<TextAsset>("3linetxt/" + songName + "/" + songName + "-" + level);
                     Debug.Log("Line3SongDataAsset:" + songData.Line3SongDataAsset.name);
                     // Debug.Log("notetxt:" + songData.);
@@ -160,11 +164,13 @@ public class ListButton : MonoBehaviour
                 }
                 else
                 {
+                    songData.audio = Resources.Load<AudioClip>("Audios/cAudio/" + songName);
+                    Debug.Log("audio: " + songData.audio.name);
                     songData.Line6SongDataAsset = Resources.Load<TextAsset>("6linetxt/" + songName + "/" + songName + "-" + level);
                     Debug.Log("Line6SongDataAsset:" + songData.Line6SongDataAsset.name);
                 }
             }
-            Debug.Log("audio:" + songData.audio.name);
+
 
             //轉跳sence
             if (songTxt != null)
@@ -194,7 +200,6 @@ public class ListButton : MonoBehaviour
                 }
             }
         }
-        //}
     }
     public void isPresence()
     {
