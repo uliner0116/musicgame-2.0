@@ -20,6 +20,7 @@ public class ListButton : MonoBehaviour
     public Image t2;
     public Image t3;
     public Image piano;
+    //static public bool  D=true;
     TextAsset songTxt;
     GameObject father_gameObject;   //宣告一個GameObject(用來放取得的父物件)。
     //歌名對照表
@@ -30,17 +31,20 @@ public class ListButton : MonoBehaviour
         "恋愛サーキュレーション" ,"夠愛" ,"將軍令" ,"華陽炎" ,"極楽浄土" ,"憂愁" ,"憨人" ,"樹枝孤鳥" ,"恋" ,"Burn It Down","Counting Stars","Good Time","I Really Like You","Maps","One More Night",
         "Poker Face","Thunder","What Ive Done","What Makes You Beautiful"
     };
-
+    
     //點擊時呼叫
     public void OnPathClick()
     {
         //changecolor2 = true;
+        
         if (changecolor2 == false)
         {
             Debug.Log(changecolor2);
 
             changecolor2 = true;
+            Debug.Log(changecolor2);
             t.color = new Color32(255, 255, 255, 255);
+            Debug.Log(t.color);
             t1.sprite =Resources.Load("star4",typeof(Sprite))as Sprite;
             t2.sprite = Resources.Load("star4", typeof(Sprite)) as Sprite;
             t3.sprite = Resources.Load("star4", typeof(Sprite)) as Sprite;
@@ -56,7 +60,7 @@ public class ListButton : MonoBehaviour
                 line = 6;
                 piano.sprite = Resources.Load("鋼琴6交換", typeof(Sprite)) as Sprite;
             }
-           /*   father_gameObject = father_gameObject.transform.parent.gameObject;
+          /*father_gameObject = father_gameObject.transform.parent.gameObject;
             level = transform.name;
           if (string.Compare(level, "Easy") == 0)
             {
@@ -64,6 +68,10 @@ public class ListButton : MonoBehaviour
                 t3.color = new Color32(0, 0, 0, 0);
             }
             else if (string.Compare(level, "Normal") == 0)
+            {
+                t3.color = new Color32(0, 0, 0, 0);
+            }
+            else if (string.Compare(level, "Hard") == 0)
             {
                 t3.color = new Color32(0, 0, 0, 0);
             }*/
@@ -130,7 +138,7 @@ public class ListButton : MonoBehaviour
                 if (songTxt == null)
                 {
                     Debug.Log("not found this level!");
-                    //this.gameObject.SetActive(false);
+                    this.gameObject.SetActive(false);
                     //按化處理
                 }
                 else
@@ -147,7 +155,7 @@ public class ListButton : MonoBehaviour
                 if (songTxt == null)
                 {
                     Debug.Log("not found this level!");
-                    //this.gameObject.SetActive(false);
+                    this.gameObject.SetActive(false);
                     //按化處理
                 }
                 else
@@ -244,17 +252,37 @@ public class ListButton : MonoBehaviour
                 }
             }
      }
+
     // Use this for initialization
     void Start()
     {
         //isPresence();
         this.GetComponent<Button>().onClick.AddListener(OnPathClick);
-
     }
 
             // Update is called once per frame
-            void Update()
+    void Update()
     {
-
+        if (t.color == Color.black)
+        {
+            changecolor2 = false;
+          //  t.color = new Color32(255, 255, 255, 255);
+            t1.sprite = Resources.Load("star5", typeof(Sprite)) as Sprite;
+            t2.sprite = Resources.Load("star5", typeof(Sprite)) as Sprite;
+            t3.sprite = Resources.Load("star5", typeof(Sprite)) as Sprite;
+            father_gameObject = gameObject.transform.parent.gameObject;
+            lineName = father_gameObject.name;
+            if (string.Compare(lineName, "Line3") == 0)
+            {
+                line = 3;
+                piano.sprite = Resources.Load("鋼琴鍵 3", typeof(Sprite)) as Sprite;
+            }
+            else if (string.Compare(lineName, "Line6") == 0)
+            {
+                line = 6;
+                piano.sprite = Resources.Load("鋼琴6", typeof(Sprite)) as Sprite;
+            }
+        }
     }
+
 }

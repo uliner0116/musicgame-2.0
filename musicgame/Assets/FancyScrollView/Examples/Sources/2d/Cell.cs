@@ -51,7 +51,7 @@ namespace FancyScrollView.Example03
             
           //   Debug.Log(itemData.imageName);
             imageLarge.sprite = Resources.Load<Sprite>(itemData.imageName);
-          //  imageLarge.name = itemData.Message;
+            //  imageLarge.name = itemData.Message;            
             var selected = Context.SelectedIndex == Index;
             image.color = selected
                 ? new Color32(0, 255, 255, 100)
