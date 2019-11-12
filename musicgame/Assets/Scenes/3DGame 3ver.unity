@@ -2127,7 +2127,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 23f6f6fa6cac1b2418306ed96abd6e71, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gameOverCanvasPrefab: {fileID: 33542958300879589, guid: 94584587cf1e1b746bb4aa1e3b78ea4f,
+  gameOverCanvasPrefab: {fileID: 8416994148099566875, guid: 94584587cf1e1b746bb4aa1e3b78ea4f,
     type: 3}
   audioManager: {fileID: 1462918908}
   Node: {fileID: 7807542651342680662, guid: ca96a2edb64dad642a3f8538234f44f1, type: 3}
@@ -2260,7 +2260,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 23f6f6fa6cac1b2418306ed96abd6e71, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gameOverCanvasPrefab: {fileID: 33542958300879589, guid: 94584587cf1e1b746bb4aa1e3b78ea4f,
+  gameOverCanvasPrefab: {fileID: 8416994148099566875, guid: 94584587cf1e1b746bb4aa1e3b78ea4f,
     type: 3}
   audioManager: {fileID: 1462918908}
   Node: {fileID: 7807542651342680662, guid: ca96a2edb64dad642a3f8538234f44f1, type: 3}
@@ -2885,31 +2885,6 @@ PrefabInstance:
       propertyPath: m_Pivot.y
       value: 0.5
       objectReference: {fileID: 0}
-    - target: {fileID: 114582256005417974, guid: 848e2737c34da0e4e9ae087af2a9d519,
-        type: 3}
-      propertyPath: m_Color.a
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 224315546128393492, guid: 848e2737c34da0e4e9ae087af2a9d519,
-        type: 3}
-      propertyPath: m_SizeDelta.x
-      value: 50
-      objectReference: {fileID: 0}
-    - target: {fileID: 224315546128393492, guid: 848e2737c34da0e4e9ae087af2a9d519,
-        type: 3}
-      propertyPath: m_SizeDelta.y
-      value: 48.12
-      objectReference: {fileID: 0}
-    - target: {fileID: 224315546128393492, guid: 848e2737c34da0e4e9ae087af2a9d519,
-        type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: 2.54
-      objectReference: {fileID: 0}
-    - target: {fileID: 224315546128393492, guid: 848e2737c34da0e4e9ae087af2a9d519,
-        type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: -3.3
-      objectReference: {fileID: 0}
     - target: {fileID: 224417705237155306, guid: 848e2737c34da0e4e9ae087af2a9d519,
         type: 3}
       propertyPath: m_SizeDelta.x
@@ -2930,17 +2905,42 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.x
       value: 3
       objectReference: {fileID: 0}
-    - target: {fileID: 114392156293896288, guid: 848e2737c34da0e4e9ae087af2a9d519,
-        type: 3}
-      propertyPath: m_Sprite
-      value: 
-      objectReference: {fileID: 21300000, guid: c33c8ccbedce651449faf527475e870b,
-        type: 3}
     - target: {fileID: 114997605268953536, guid: 848e2737c34da0e4e9ae087af2a9d519,
         type: 3}
       propertyPath: m_Sprite
       value: 
       objectReference: {fileID: 21300000, guid: e25857324883e6b468963413bb3841d5,
+        type: 3}
+    - target: {fileID: 224315546128393492, guid: 848e2737c34da0e4e9ae087af2a9d519,
+        type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 50
+      objectReference: {fileID: 0}
+    - target: {fileID: 224315546128393492, guid: 848e2737c34da0e4e9ae087af2a9d519,
+        type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 48.12
+      objectReference: {fileID: 0}
+    - target: {fileID: 224315546128393492, guid: 848e2737c34da0e4e9ae087af2a9d519,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 2.54
+      objectReference: {fileID: 0}
+    - target: {fileID: 224315546128393492, guid: 848e2737c34da0e4e9ae087af2a9d519,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -3.3
+      objectReference: {fileID: 0}
+    - target: {fileID: 114582256005417974, guid: 848e2737c34da0e4e9ae087af2a9d519,
+        type: 3}
+      propertyPath: m_Color.a
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114392156293896288, guid: 848e2737c34da0e4e9ae087af2a9d519,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: c33c8ccbedce651449faf527475e870b,
         type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 848e2737c34da0e4e9ae087af2a9d519, type: 3}
@@ -5225,7 +5225,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 23f6f6fa6cac1b2418306ed96abd6e71, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gameOverCanvasPrefab: {fileID: 33542958300879589, guid: 94584587cf1e1b746bb4aa1e3b78ea4f,
+  gameOverCanvasPrefab: {fileID: 8416994148099566875, guid: 94584587cf1e1b746bb4aa1e3b78ea4f,
     type: 3}
   audioManager: {fileID: 1462918908}
   Node: {fileID: 7807542651342680662, guid: ca96a2edb64dad642a3f8538234f44f1, type: 3}
