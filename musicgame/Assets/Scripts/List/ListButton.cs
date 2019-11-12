@@ -38,7 +38,7 @@ public class ListButton : MonoBehaviour
     {
         //changecolor2 = true;
         Debug.Log("in touch" + changecolor2);
-        if (t.color == Color.white)
+        if (changecolor2 == false)
         {
             Debug.Log(changecolor2);
 
@@ -314,7 +314,10 @@ public class ListButton : MonoBehaviour
             // Update is called once per frame
     void Update()
     {
-       
+        if(t.color == Color.black)
+        {
+            changecolor2 = false;
+        }
     }
 
 }

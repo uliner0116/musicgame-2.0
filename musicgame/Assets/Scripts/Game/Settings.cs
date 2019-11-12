@@ -4,6 +4,7 @@ using System;
 using System.Collections;
 using System.Text.RegularExpressions;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class Settings : MonoBehaviour
@@ -18,6 +19,8 @@ public class Settings : MonoBehaviour
     [SerializeField]
     private bool preview;
 
+    public GameObject page;
+    private bool pauseEnabled = false;
     //print 
     [SerializeField]
     TextMesh scoreText;
@@ -29,6 +32,8 @@ public class Settings : MonoBehaviour
     TextAsset songDataAsset;
     [SerializeField]
     AudioManager audioManager;
+    [SerializeField]
+    Button stopButton;
     SongData song;
     MatchCollection mc = null;
     //gameovercanvs get this
@@ -58,7 +63,9 @@ public class Settings : MonoBehaviour
     {
         comment.text = "";
         _preview = preview;
+        
     }
+
     int Life
     {
         set
@@ -107,6 +114,7 @@ public class Settings : MonoBehaviour
 
     private void Start()
     {
+        stopButton.onClick.AddListener(Stop);
         if (Line == 3)
         {
             this.songDataAsset = songData.Line3SongDataAsset;
@@ -121,6 +129,7 @@ public class Settings : MonoBehaviour
         Life = 50;
         maxLife = 50;
         Combo = 0;
+        Time.timeScale = 1;
         song = SongData.LoadFromJson(songDataAsset.text);
         Regex re = new Regex("time");
         mc = re.Matches(songDataAsset.text);
@@ -225,5 +234,35 @@ public class Settings : MonoBehaviour
     void ScoreDouble(int up)//依combo高低調整分數上升幅度
     {
         Score = (score + up) * (1 + combo / noteQuantity);
+    }
+
+    void Stop()
+    {
+        page.SetActive(true);
+        Time.timeScale = 0;
+        audioManager.bgm.Pause();
+        Debug.Log("Stop");
+        pauseEnabled = true;
+    }
+    public void Retry()
+    {
+        if (Line == 3)
+        {
+            SceneManager.LoadScene("3DGame 3ver");
+        }
+        else if (Line == 6)
+        {
+            SceneManager.LoadScene("3DGame 6ver");
+        }
+    }
+    public void BackGame()
+    {
+        page.SetActive(false);
+        pauseEnabled = false;
+        Time.timeScale = 1;
+        //Thread.Sleep(3000);
+        audioManager.bgm.UnPause();
+        Debug.Log("UnStop");
+
     }
 }

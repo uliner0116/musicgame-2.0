@@ -3177,6 +3177,11 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 21300000, guid: 45c4f961625e89a4b98b76ecf7c21162,
         type: 3}
+    - target: {fileID: 114862109735304566, guid: 08afa9e6f8dad3846b7c306e67b8b3bf,
+        type: 3}
+      propertyPath: bmenu
+      value: 2D
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 08afa9e6f8dad3846b7c306e67b8b3bf, type: 3}
 --- !u!224 &950091927 stripped
@@ -5376,28 +5381,33 @@ PrefabInstance:
     - target: {fileID: 114427715522000492, guid: 848e2737c34da0e4e9ae087af2a9d519,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: OnStartGame
+      value: 
       objectReference: {fileID: 0}
     - target: {fileID: 114427715522000492, guid: 848e2737c34da0e4e9ae087af2a9d519,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
-      value: 5
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 114427715522000492, guid: 848e2737c34da0e4e9ae087af2a9d519,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
-      value: UnityEngine.Object, UnityEngine
+      value: 
       objectReference: {fileID: 0}
     - target: {fileID: 114427715522000492, guid: 848e2737c34da0e4e9ae087af2a9d519,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_StringArgument
-      value: Menu
+      value: 
       objectReference: {fileID: 0}
     - target: {fileID: 114427715522000492, guid: 848e2737c34da0e4e9ae087af2a9d519,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 114427715522000492, guid: 848e2737c34da0e4e9ae087af2a9d519,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 76563174}
     - target: {fileID: 114997605268953536, guid: 848e2737c34da0e4e9ae087af2a9d519,
         type: 3}
       propertyPath: m_Sprite

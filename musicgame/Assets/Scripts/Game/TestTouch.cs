@@ -2,10 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class playLoop : MonoBehaviour
+public class TestTouch : MonoBehaviour
 {
-    public int playTime= 0;
-    public AudioSource bgm;
     // Start is called before the first frame update
     void Start()
     {
@@ -16,5 +14,9 @@ public class playLoop : MonoBehaviour
     void Update()
     {
         
+    }
+    public void test()
+    {
+        Debug.Log("is Touch");
     }
 }
