@@ -24,7 +24,7 @@ public class ListButton : MonoBehaviour
     TextAsset songTxt;
     GameObject father_gameObject;   //宣告一個GameObject(用來放取得的父物件)。
     //歌名對照表
-    int listNumber=0;
+    int listNumber = 0;
 
     string[] songList = new string[]{
         "butterfly" ,"Don't say lazy" ,"Im sorry" ,"LATATA" ,"LOVE" ,"Mirotic" ,"Oh!" ,"One Night In 北京" ,"PON PON PON" ,"Roly Poly" ,"SORRY SORRY" ,"Trouble Maker" ,"Tunak Tunak Tun" ,
@@ -32,21 +32,21 @@ public class ListButton : MonoBehaviour
         "恋愛サーキュレーション" ,"夠愛" ,"將軍令" ,"華陽炎" ,"極楽浄土" ,"憂愁" ,"憨人" ,"樹枝孤鳥" ,"恋" ,"Burn It Down","Counting Stars","Good Time","I Really Like You","Maps","One More Night",
         "Poker Face","Thunder","What Ive Done","What Makes You Beautiful"
     };
-    
+
     //點擊時呼叫
     public void OnPathClick()
     {
         //changecolor2 = true;
         Debug.Log("in touch" + changecolor2);
-        if (changecolor2 == false)
+        if (t.color == Color.white)
         {
             Debug.Log(changecolor2);
 
             changecolor2 = true;
-            Debug.Log(changecolor2);
+            /*Debug.Log(changecolor2);
             t.color = new Color32(255, 255, 255, 255);
             Debug.Log(t.color);
-            t1.sprite =Resources.Load("star4",typeof(Sprite))as Sprite;
+            t1.sprite = Resources.Load("star4", typeof(Sprite)) as Sprite;
             t2.sprite = Resources.Load("star4", typeof(Sprite)) as Sprite;
             t3.sprite = Resources.Load("star4", typeof(Sprite)) as Sprite;
             father_gameObject = gameObject.transform.parent.gameObject;
@@ -63,7 +63,7 @@ public class ListButton : MonoBehaviour
                 line = 6;
                 piano.sprite = Resources.Load("鋼琴6交換", typeof(Sprite)) as Sprite;
             }
-            Debug.Log(changecolor2);
+            Debug.Log(changecolor2);*/
             /*father_gameObject = father_gameObject.transform.parent.gameObject;
               level = transform.name;
             if (string.Compare(level, "Easy") == 0)
@@ -79,12 +79,13 @@ public class ListButton : MonoBehaviour
               {
                   t3.color = new Color32(0, 0, 0, 0);
               }*/
-        }else if (changecolor2 == true)
+        }
+        else if (changecolor2 == true)
         {
             Debug.Log(changecolor2);
             //取得這首歌的名稱
             father_gameObject = gameObject.transform.parent.gameObject;
-          //  father_gameObject = father_gameObject.transform.parent.gameObject;
+            //  father_gameObject = father_gameObject.transform.parent.gameObject;
             //line在兩層後 設定line相關資訊
             lineName = father_gameObject.name;
             if (string.Compare(lineName, "Line3") == 0)
@@ -133,7 +134,7 @@ public class ListButton : MonoBehaviour
             //while (!www.isDone) { }
             //Game.SceneController.songDataAsset= Resources.Load<TextAsset>(noteTxt);
             //songData.audio = www.GetAudioClip();
-           
+
             if (line == 3)
             {
                 songTxt = Resources.Load<TextAsset>("3linetxt/" + songName + "/" + songName + "-" + level);
@@ -245,33 +246,22 @@ public class ListButton : MonoBehaviour
                 this.gameObject.SetActive(false);
                 //按化處理
             }
-        }else if (line == 6)
-            {
-                songTxt = Resources.Load<TextAsset>("6linetxt/" + songName + "/" + songName + "-" + level);
+        } else if (line == 6)
+        {
+            songTxt = Resources.Load<TextAsset>("6linetxt/" + songName + "/" + songName + "-" + level);
             //Debug.Log("6Line:" + songTxt.name);
             if (songTxt == null)
-                {
-                    //Debug.Log("not found this level!"+ songTxt.name);
-                    this.gameObject.SetActive(false);
-                    //按化處理
-                }
+            {
+                //Debug.Log("not found this level!"+ songTxt.name);
+                this.gameObject.SetActive(false);
+                //按化處理
             }
-     }
-
-    // Use this for initialization
-    void Start()
-    {
-        //isPresence();
-        this.GetComponent<Button>().onClick.AddListener(OnPathClick);
+        }
     }
-
-            // Update is called once per frame
-    void Update()
+    public void Recover()
     {
-        if (t.color == Color.black)
-        {
-            changecolor2 = false;
-          //  t.color = new Color32(255, 255, 255, 255);
+       // changecolor2 = false;
+            t.color = new Color32(0, 0, 0, 255);
             t1.sprite = Resources.Load("star5", typeof(Sprite)) as Sprite;
             t2.sprite = Resources.Load("star5", typeof(Sprite)) as Sprite;
             t3.sprite = Resources.Load("star5", typeof(Sprite)) as Sprite;
@@ -287,7 +277,44 @@ public class ListButton : MonoBehaviour
                 line = 6;
                 piano.sprite = Resources.Load("鋼琴6", typeof(Sprite)) as Sprite;
             }
+    }
+    public void ChangeC()
+    {
+        Debug.Log(changecolor2);
+
+        //changecolor2 = true;
+        Debug.Log(changecolor2);
+        t.color = new Color32(255, 255, 255, 255);
+        Debug.Log(t.color);
+        t1.sprite = Resources.Load("star4", typeof(Sprite)) as Sprite;
+        t2.sprite = Resources.Load("star4", typeof(Sprite)) as Sprite;
+        t3.sprite = Resources.Load("star4", typeof(Sprite)) as Sprite;
+        father_gameObject = gameObject.transform.parent.gameObject;
+        lineName = father_gameObject.name;
+        if (string.Compare(lineName, "Line3") == 0)
+        {
+            Debug.Log("lineName Line3");
+            line = 3;
+            piano.sprite = Resources.Load("鋼琴鍵 3 交換", typeof(Sprite)) as Sprite;
         }
+        else if (string.Compare(lineName, "Line6") == 0)
+        {
+            Debug.Log("lineName Line6");
+            line = 6;
+            piano.sprite = Resources.Load("鋼琴6交換", typeof(Sprite)) as Sprite;
+        }
+    }
+    // Use this for initialization
+    void Start()
+    {
+        //isPresence();
+        this.GetComponent<Button>().onClick.AddListener(OnPathClick);
+    }
+
+            // Update is called once per frame
+    void Update()
+    {
+       
     }
 
 }
