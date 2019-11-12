@@ -36,49 +36,11 @@ public class ListButton : MonoBehaviour
     //點擊時呼叫
     public void OnPathClick()
     {
-        //changecolor2 = true;
         Debug.Log("in touch" + changecolor2);
         if (changecolor2 == false)
         {
             Debug.Log(changecolor2);
-
             changecolor2 = true;
-            /*Debug.Log(changecolor2);
-            t.color = new Color32(255, 255, 255, 255);
-            Debug.Log(t.color);
-            t1.sprite = Resources.Load("star4", typeof(Sprite)) as Sprite;
-            t2.sprite = Resources.Load("star4", typeof(Sprite)) as Sprite;
-            t3.sprite = Resources.Load("star4", typeof(Sprite)) as Sprite;
-            father_gameObject = gameObject.transform.parent.gameObject;
-            lineName = father_gameObject.name;
-            if (string.Compare(lineName, "Line3") == 0)
-            {
-                Debug.Log("lineName Line3");
-                line = 3;
-                piano.sprite = Resources.Load("鋼琴鍵 3 交換", typeof(Sprite)) as Sprite;
-            }
-            else if (string.Compare(lineName, "Line6") == 0)
-            {
-                Debug.Log("lineName Line6");
-                line = 6;
-                piano.sprite = Resources.Load("鋼琴6交換", typeof(Sprite)) as Sprite;
-            }
-            Debug.Log(changecolor2);*/
-            /*father_gameObject = father_gameObject.transform.parent.gameObject;
-              level = transform.name;
-            if (string.Compare(level, "Easy") == 0)
-              {
-                  t2.color = new Color32(0, 0, 0, 0);
-                  t3.color = new Color32(0, 0, 0, 0);
-              }
-              else if (string.Compare(level, "Normal") == 0)
-              {
-                  t3.color = new Color32(0, 0, 0, 0);
-              }
-              else if (string.Compare(level, "Hard") == 0)
-              {
-                  t3.color = new Color32(0, 0, 0, 0);
-              }*/
         }
         else if (changecolor2 == true)
         {
@@ -280,9 +242,6 @@ public class ListButton : MonoBehaviour
     }
     public void ChangeC()
     {
-        Debug.Log(changecolor2);
-
-        //changecolor2 = true;
         Debug.Log(changecolor2);
         t.color = new Color32(255, 255, 255, 255);
         Debug.Log(t.color);
