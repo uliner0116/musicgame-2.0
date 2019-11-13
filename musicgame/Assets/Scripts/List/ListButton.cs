@@ -168,7 +168,7 @@ public class ListButton : MonoBehaviour
     {
         //取得這首歌的名稱
         father_gameObject = gameObject.transform.parent.gameObject;
-        father_gameObject = father_gameObject.transform.parent.gameObject;
+       // father_gameObject = father_gameObject.transform.parent.gameObject;
         //line在兩層後 設定line相關資訊
         lineName = father_gameObject.name;
         if (string.Compare(lineName, "Line3") == 0)
@@ -205,7 +205,8 @@ public class ListButton : MonoBehaviour
             if (songTxt == null)
             {
                 //Debug.Log("not found this level!"+ songTxt.name);
-                this.gameObject.SetActive(false);
+                this.gameObject.GetComponent<Button>().enabled = false;
+                t.color = new Color32(100, 100, 100, 128);
                 //按化處理
             }
         } else if (line == 6)
@@ -215,7 +216,8 @@ public class ListButton : MonoBehaviour
             if (songTxt == null)
             {
                 //Debug.Log("not found this level!"+ songTxt.name);
-                this.gameObject.SetActive(false);
+                this.gameObject.GetComponent<Button>().enabled = false;
+                t.color = new Color32(100,100,100,128);
                 //按化處理
             }
         }
@@ -266,7 +268,7 @@ public class ListButton : MonoBehaviour
     // Use this for initialization
     void Start()
     {
-        //isPresence();
+        isPresence();
         this.GetComponent<Button>().onClick.AddListener(OnPathClick);
     }
 
