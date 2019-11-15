@@ -70,6 +70,8 @@ namespace Game
         [SerializeField]
         Text scoreText;
         [SerializeField]
+        Text touchText;
+        [SerializeField]
         Text lifeText;
         [SerializeField]
         Text comboText;
@@ -122,6 +124,8 @@ namespace Game
                 if (life <= 0)
                 {
                     life = 0;
+                    Time.timeScale = 0;
+                    audioManager.bgm.Pause();
                     gameOverPanel.SetActive(true);
                 }
                 lifeText.text = string.Format("Life:" + life);
@@ -210,13 +214,12 @@ Life = 2500;
             Life = 50;
             maxLife = 50;
             Combo = 0;
-            retryButton.onClick.AddListener(OnRetryButtonClick);
             stopButton.onClick.AddListener(Stop);
 
 
 
             // ボタンのリスナー設定と最終タップ時間の初期化
-            for (var i = 0; i < noteButtons.Length; i++)
+            /*for (var i = 0; i < noteButtons.Length; i++)
             {
                 noteButtons[i].onClick.AddListener(GetOnNoteButtonClickAction(i));
                 lastTappedMilliseconds.Add(noteButtons[i], 0);
@@ -227,7 +230,7 @@ Life = 2500;
                 Debug.Log("set" + i);
                 Hits[i].onClick.AddListener(GetOnNoteButtonClickAction(i));
                 lastTappedMilliseconds.Add(Hits[i], 0);
-            }
+            }*/
             // ノートオブジェクトのプール
             for (var i = 0; i < 100; i++)
             {
@@ -264,51 +267,69 @@ Life = 2500;
         void Update()
         {
             time1 = Time.timeSinceLevelLoad;
-            TimeText.text = string.Format("Time: {0}", time1);
+            //TimeText.text = string.Format("Time: {0}", time1);
             //Debug.Log("遊戲時間為:"+Time.time);
             // キーボード入力も可能に
-            for (var i = 0; i < keys.Length; i++)
+            /*for (var i = 0; i < keys.Length; i++)
             {
                 //接收觸及改這邊
                 if (Input.GetKeyDown(keys[i]))
                 {
                     noteButtons[i].onClick.Invoke();
                 }
-            }
-            /*if (MobileInput())
+            }*/
+
+            /* Dictionary<GameObject, TouchPhase> tapinfo = OnTouchPhase();
+             foreach (var key in tapinfo.Keys)
+             {
+                 touchText.text = string.Format("in foreach");
+                 Debug.Log("Touch home");
+                 touchText.text = string.Format("key name:" + key.name);
+                 if (key.name == "TapObject")
+                 {
+                     var line = key.transform.parent.gameObject;
+                     if(string.Compare(line.name, "NoteButton0") == 0)
+                     {
+                         Tap(0);
+                     }else if(string.Compare(line.name, "NoteButton1") == 0)
+                     {
+                         Tap(1); ;
+                     }
+                     else if (string.Compare(line.name, "NoteButton2") == 0)
+                     {
+                         Tap(2); ;
+                     }
+                     else if (string.Compare(line.name, "NoteButton3") == 0)
+                     {
+                         Tap(3);
+                     }
+                     else if (string.Compare(line.name, "NoteButton4") == 0)
+                     {
+                         Tap(4);
+                     }
+                     else if (string.Compare(line.name, "NoteButton5") == 0)
+                     {
+                         Tap(5);
+                     }
+                 }
+             }*/
+            if (MobileInput())
             {
-                Debug.Log("touch");
                 int i;
                 i = Collision();
-                if (i != 5)
+                if (i != 6)
                 {
-                    Debug.Log(i);
-                    noteButtons[i].onClick.Invoke();
+                    //touchText.text = string.Format("key name:" + i);
+                    Tap(i);
                 }
-            }*/
+            }
 
             // ノートを生成
             var audioLength = audioManager.bgm.clip.length;
             var bgmTime = audioManager.bgm.time;
             if (time1 >= audioLength + 3 && inOver == false)
             {
-                inOver = true;
-                songData.noteQuantity = noteQuantity;
-                songData.missNum = missNum;
-                songData.perfectNum = perfectNum;
-                songData.greatNum = greatNum;
-                songData.goodNum = goodNum;
-                songData.badNum = badNum;
-                songData.songName = songName;
-                songData.maxScore = maxScore;
-                songData.score = score;
-                songData.maxCombo = maxCombo;
-                Debug.Log("prefect:" + perfectNum);
-                Debug.Log("great:" + greatNum);
-                Debug.Log("good:" + goodNum);
-                Debug.Log("bad:" + badNum);
-                Debug.Log("miss:" + missNum);
-                Instantiate(gameOverCanvasPrefab, Vector2.zero, Quaternion.identity);
+                goToScore();
             }
             else
             {
@@ -320,6 +341,27 @@ Life = 2500;
                 }
                 previousTime = bgmTime;
             }
+        }
+
+        public void goToScore()
+        {
+            inOver = true;
+            songData.noteQuantity = noteQuantity;
+            songData.missNum = missNum;
+            songData.perfectNum = perfectNum;
+            songData.greatNum = greatNum;
+            songData.goodNum = goodNum;
+            songData.badNum = badNum;
+            songData.songName = songName;
+            songData.maxScore = maxScore;
+            songData.score = score;
+            songData.maxCombo = maxCombo;
+            Debug.Log("prefect:" + perfectNum);
+            Debug.Log("great:" + greatNum);
+            Debug.Log("good:" + goodNum);
+            Debug.Log("bad:" + badNum);
+            Debug.Log("miss:" + missNum);
+            Instantiate(gameOverCanvasPrefab, Vector2.zero, Quaternion.identity);
         }
         public void loadVolume(string name)
         {
@@ -428,7 +470,7 @@ Life = 2500;
         
         public void BackMenu()//Make Main Menu button
         {
-            Application.LoadLevel(mainMenuSceneName);
+            SceneManager.LoadScene("2D");
         }
 
         public void Retry()
@@ -533,20 +575,21 @@ Life = 2500;
         /// </summary>
         /// <returns>The on note button click action.</returns>
         /// <param name="noteNo">Note no.</param>
-        UnityAction GetOnNoteButtonClickAction(int noteNo)
+        //UnityAction GetOnNoteButtonClickAction(int noteNo)
+        public void Tap(int noteNo)
         {
             Debug.Log("GetOnNoteButtonCli");
-            return () =>
-            {
+            //return () =>
+            //{
                 if (gameOverPanel.activeSelf)
                 {
                     return;
                 }
 
                 audioManager.note.Play();
-                noteButtons[noteNo].image.color = highlightButtonColor;
-                StartCoroutine(DeselectCoroutine(noteButtons[noteNo]));
-                lastTappedMilliseconds[noteButtons[noteNo]] = DateTime.Now.Millisecond;
+                //noteButtons[noteNo].image.color = highlightButtonColor;
+                //(DeselectCoroutine(noteButtons[noteNo]));
+                //lastTappedMilliseconds[noteButtons[noteNo]] = DateTime.Now.Millisecond;
 
                 var targetNoteObject = noteObjectPool.Where(x => x.NoteNumber == noteNo)
                                                      .OrderBy(x => x.AbsoluteTimeDiff)
@@ -575,7 +618,32 @@ Life = 2500;
                     OnNoteBad(targetNoteObject.NoteNumber);
                 }
                 targetNoteObject.gameObject.SetActive(false);
-            };
+            //};
+        }
+
+        public Dictionary<GameObject, TouchPhase> OnTouchPhase()
+        {
+            //touchText.text = string.Format("Before");
+            Dictionary<GameObject, TouchPhase> ret = new Dictionary<GameObject, TouchPhase>();
+            //touchText.text = string.Format("After");
+            if (Input.GetMouseButton(0))
+            {
+                Debug.Log("in get");
+                for (int i = 0; i < Input.touchCount; i++)
+                {
+                    Touch touch = Input.GetTouch(i);
+                    Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+                    //RaycastHit raycast_hit = new RaycastHit();
+                    RaycastHit2D hit = Physics2D.Raycast(ray.origin, ray.direction, 10000, 32); 
+                    if (hit.collider)
+                    {
+                        touchText.text = string.Format("hit" + audioManager.bgm.time);
+                        //ret.Add(hit.collider.gameObject, touch.phase);
+                    }
+                }
+                
+            }
+            return ret;
         }
 
         /*UnityAction AcriveNoteBotton(int noteNum)
@@ -693,32 +761,65 @@ Life = 2500;
             //利用数学公事　(x1 – x2)2 + (y1 – y2)2 < (r1 + r2)2
             //判断点是在蓝盘中还是红盘中
 
-            int radius = 50 * 50;
-            if ((((-360 - m_screenPos.x) * (-360 - m_screenPos.x)) + ((-m_screenPos.y) * (0 - m_screenPos.y))) < radius)
+            bool yisrange = false;
+            if(m_screenPos.y<=270 && m_screenPos.y >= 70)
             {
+                yisrange = true;
+            }
+            if(Line == 6)
+            {
+         
+            if (m_screenPos.x<320 && m_screenPos.x>0 && yisrange)
+            {
+                touchText.text = string.Format("radius:" + 0);
                 return 0;
             }
-            /*else if ((((-180 - m_screenPos.x) * (-180 - m_screenPos.x)) + ((0 - m_screenPos.y) * (0 - m_screenPos.y))) < radius)
+            else if (m_screenPos.x < 640 && m_screenPos.x > 320 && yisrange)
             {
+                touchText.text = string.Format("radius:" + 1);
                 return 1;
-            }*/
-            else if ((((0 - m_screenPos.x) * (0 - m_screenPos.x)) + ((0 - m_screenPos.y) * (0 - m_screenPos.y))) < radius)
+            }
+            else if (m_screenPos.x < 960 && m_screenPos.x > 640 && yisrange)
             {
+                touchText.text = string.Format("radius:" + 2);
                 return 2;
             }
-            /*else if ((((180 - m_screenPos.x) * (180 - m_screenPos.x)) + ((0 - m_screenPos.y) * (0 - m_screenPos.y))) < radius)
+            else if (m_screenPos.x < 1280 && m_screenPos.x > 960 && yisrange)
             {
+                touchText.text = string.Format("radius:" + 3);
                 return 3;
-            }*/
-            else if ((((360 - m_screenPos.x) * (360 - m_screenPos.x)) + ((0 - m_screenPos.y) * (0 - m_screenPos.y))) < radius)
+            }
+            else if (m_screenPos.x < 1600 && m_screenPos.x > 1280 && yisrange)
             {
+                touchText.text = string.Format("radius:" + 4);
                 return 4;
             }
-            else
+            else if (m_screenPos.x < 1920 && m_screenPos.x > 1600 && yisrange)
             {
+                touchText.text = string.Format("radius:" + 5);
                 return 5;
             }
-
+            else return 6;
+            }else if(Line == 3)
+            {
+                if (m_screenPos.x < 640 && m_screenPos.x > 0 && yisrange)
+                {
+                    touchText.text = string.Format("radius:" + 0);
+                    return 0;
+                }
+                else if (m_screenPos.x < 1280 && m_screenPos.x > 640 && yisrange)
+                {
+                    touchText.text = string.Format("radius:" + 1);
+                    return 1;
+                }
+                else if (m_screenPos.x < 1920 && m_screenPos.x > 1280 && yisrange)
+                {
+                    touchText.text = string.Format("radius:" + 2);
+                    return 2;
+                }
+                else return 6;
+            }
+            return 6;
         }
     }
 }

@@ -55,6 +55,7 @@ public class Settings : MonoBehaviour
 
     [SerializeField]
     GameObject gameOverPanel;
+    public GameObject gameOverCanvasPrefab;
 
     [SerializeField]
     private bool randomTiming;
@@ -74,7 +75,10 @@ public class Settings : MonoBehaviour
             if (life <= 0)
             {
                 life = 0;
-                //gameOverPanel.SetActive(true);
+                life = 0;
+                Time.timeScale = 0;
+                audioManager.bgm.Pause();
+                gameOverPanel.SetActive(true);
             }
             lifeText.text = string.Format("Life:" + life);
         }
@@ -158,6 +162,7 @@ public class Settings : MonoBehaviour
         Debug.Log("maxScore:" + songData.maxScore);
         Debug.Log("score:" + songData.score);
         Debug.Log("combo:" + songData.maxCombo);
+        Instantiate(gameOverCanvasPrefab, Vector2.zero, Quaternion.identity);
     }
 
     void setMaxScore()
@@ -264,5 +269,9 @@ public class Settings : MonoBehaviour
         audioManager.bgm.UnPause();
         Debug.Log("UnStop");
 
+    }
+    public void BackMenu()//Make Main Menu button
+    {
+        SceneManager.LoadScene("2D");
     }
 }

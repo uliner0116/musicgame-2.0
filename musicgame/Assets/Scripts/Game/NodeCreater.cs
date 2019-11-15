@@ -164,7 +164,7 @@ namespace Game
                     GameObject NodeLines = GameObject.Find("NodeLines");
                     Settings setData = (Settings)NodeLines.GetComponent(typeof(Settings));
                     setData.setData();
-                    Instantiate(gameOverCanvasPrefab, Vector2.zero, Quaternion.identity);
+                    //Instantiate(gameOverCanvasPrefab, Vector2.zero, Quaternion.identity);
                 }
                 else
                 {
