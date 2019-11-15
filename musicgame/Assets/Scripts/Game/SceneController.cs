@@ -762,7 +762,7 @@ Life = 2500;
             //判断点是在蓝盘中还是红盘中
 
             bool yisrange = false;
-            if(m_screenPos.y<=270 && m_screenPos.y >= 70)
+            if(m_screenPos.y<=300 && m_screenPos.y >= 40)
             {
                 yisrange = true;
             }
