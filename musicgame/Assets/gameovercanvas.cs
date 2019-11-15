@@ -42,6 +42,10 @@ public class gameovercanvas : MonoBehaviour
         {
             updateMaxScore(score);
         }
+        if (score > myBestScore)
+        {
+            updateMaxScore(score);
+        }
         load();
         //級距%數
         noteQuantity = songData.noteQuantity;
@@ -92,10 +96,7 @@ public class gameovercanvas : MonoBehaviour
         Debug.Log("Good:" + goodpersent.ToString("#0.0"));
         Debug.Log("Bad:" + badpersent.ToString("#0.0"));
         Debug.Log("Miss:" + misspersent.ToString("#0.0"));
-        if(score > myBestScore)
-        {
-            updateMaxScore(score);
-        }
+       
         
     }
 

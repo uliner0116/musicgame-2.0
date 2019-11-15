@@ -313,16 +313,7 @@ Life = 2500;
                      }
                  }
              }*/
-            if (MobileInput())
-            {
-                int i;
-                i = Collision();
-                if (i != 6)
-                {
-                    //touchText.text = string.Format("key name:" + i);
-                    Tap(i);
-                }
-            }
+           
 
             // ノートを生成
             var audioLength = audioManager.bgm.clip.length;
@@ -333,6 +324,16 @@ Life = 2500;
             }
             else
             {
+                if (MobileInput())
+                {
+                 int i;
+                     i = Collision();
+                  if (i != 6)
+                 {
+                    //touchText.text = string.Format("key name:" + i);
+                    Tap(i);
+                }
+                 }
                 foreach (var note in song.GetNotesBetweenTime(previousTime + PRE_NOTE_SPAWN_TIME, bgmTime + PRE_NOTE_SPAWN_TIME))
                 {
                     var obj = noteObjectPool.FirstOrDefault(x => !x.gameObject.activeSelf);
@@ -581,11 +582,8 @@ Life = 2500;
             Debug.Log("GetOnNoteButtonCli");
             //return () =>
             //{
-                if (gameOverPanel.activeSelf)
-                {
-                    return;
-                }
-
+                if (gameOverPanel.activeSelf == false)
+            {
                 audioManager.note.Play();
                 //noteButtons[noteNo].image.color = highlightButtonColor;
                 //(DeselectCoroutine(noteButtons[noteNo]));
@@ -618,7 +616,7 @@ Life = 2500;
                     OnNoteBad(targetNoteObject.NoteNumber);
                 }
                 targetNoteObject.gameObject.SetActive(false);
-            //};
+            }
         }
 
         public Dictionary<GameObject, TouchPhase> OnTouchPhase()
