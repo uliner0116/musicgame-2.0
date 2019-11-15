@@ -1174,7 +1174,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 23f6f6fa6cac1b2418306ed96abd6e71, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gameOverCanvasPrefab: {fileID: 8416994148099566875, guid: 94584587cf1e1b746bb4aa1e3b78ea4f,
+  gameOverCanvasPrefab: {fileID: 4558817221477022945, guid: 94584587cf1e1b746bb4aa1e3b78ea4f,
     type: 3}
   audioManager: {fileID: 1462918908}
   Node: {fileID: 7807542651342680662, guid: ca96a2edb64dad642a3f8538234f44f1, type: 3}
@@ -3586,7 +3586,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 23f6f6fa6cac1b2418306ed96abd6e71, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gameOverCanvasPrefab: {fileID: 8416994148099566875, guid: 94584587cf1e1b746bb4aa1e3b78ea4f,
+  gameOverCanvasPrefab: {fileID: 4558817221477022945, guid: 94584587cf1e1b746bb4aa1e3b78ea4f,
     type: 3}
   audioManager: {fileID: 1462918908}
   Node: {fileID: 7807542651342680662, guid: ca96a2edb64dad642a3f8538234f44f1, type: 3}
@@ -3722,7 +3722,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 23f6f6fa6cac1b2418306ed96abd6e71, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gameOverCanvasPrefab: {fileID: 8416994148099566875, guid: 94584587cf1e1b746bb4aa1e3b78ea4f,
+  gameOverCanvasPrefab: {fileID: 4558817221477022945, guid: 94584587cf1e1b746bb4aa1e3b78ea4f,
     type: 3}
   audioManager: {fileID: 1462918908}
   Node: {fileID: 7807542651342680662, guid: ca96a2edb64dad642a3f8538234f44f1, type: 3}
@@ -4339,7 +4339,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 100, y: 100}
+  m_SizeDelta: {x: 120, y: 120}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &896017784
 MonoBehaviour:
@@ -4361,7 +4361,7 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: 21300000, guid: 70ff8ac9bacedd34fb113cee36d927f3, type: 3}
+  m_Sprite: {fileID: 21300000, guid: b5666fa442f829c458d42f23b842c5da, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -6087,7 +6087,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 23f6f6fa6cac1b2418306ed96abd6e71, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gameOverCanvasPrefab: {fileID: 8416994148099566875, guid: 94584587cf1e1b746bb4aa1e3b78ea4f,
+  gameOverCanvasPrefab: {fileID: 4558817221477022945, guid: 94584587cf1e1b746bb4aa1e3b78ea4f,
     type: 3}
   audioManager: {fileID: 1462918908}
   Node: {fileID: 7807542651342680662, guid: ca96a2edb64dad642a3f8538234f44f1, type: 3}
@@ -6868,7 +6868,7 @@ MonoBehaviour:
   songName: 
   maxScore: 0
   gameOverPanel: {fileID: 2018656335}
-  gameOverCanvasPrefab: {fileID: 8416994148099566875, guid: 94584587cf1e1b746bb4aa1e3b78ea4f,
+  gameOverCanvasPrefab: {fileID: 4558817221477022945, guid: 94584587cf1e1b746bb4aa1e3b78ea4f,
     type: 3}
   randomTiming: 0
 --- !u!114 &1452424331
@@ -7952,7 +7952,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 23f6f6fa6cac1b2418306ed96abd6e71, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gameOverCanvasPrefab: {fileID: 8416994148099566875, guid: 94584587cf1e1b746bb4aa1e3b78ea4f,
+  gameOverCanvasPrefab: {fileID: 4558817221477022945, guid: 94584587cf1e1b746bb4aa1e3b78ea4f,
     type: 3}
   audioManager: {fileID: 1462918908}
   Node: {fileID: 7807542651342680662, guid: ca96a2edb64dad642a3f8538234f44f1, type: 3}
@@ -8357,7 +8357,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 23f6f6fa6cac1b2418306ed96abd6e71, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gameOverCanvasPrefab: {fileID: 8416994148099566875, guid: 94584587cf1e1b746bb4aa1e3b78ea4f,
+  gameOverCanvasPrefab: {fileID: 4558817221477022945, guid: 94584587cf1e1b746bb4aa1e3b78ea4f,
     type: 3}
   audioManager: {fileID: 1462918908}
   Node: {fileID: 7807542651342680662, guid: ca96a2edb64dad642a3f8538234f44f1, type: 3}
@@ -9235,6 +9235,16 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6311184307168411169, guid: 4e2f324b57b1abd4683bff52ee22f0e1,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1452424330}
+    - target: {fileID: 6311184307168411169, guid: 4e2f324b57b1abd4683bff52ee22f0e1,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: Retry
+      objectReference: {fileID: 0}
     - target: {fileID: 6311184306541717576, guid: 4e2f324b57b1abd4683bff52ee22f0e1,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -9339,16 +9349,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Pivot.y
       value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 6311184307168411169, guid: 4e2f324b57b1abd4683bff52ee22f0e1,
-        type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
-      value: 
-      objectReference: {fileID: 1452424330}
-    - target: {fileID: 6311184307168411169, guid: 4e2f324b57b1abd4683bff52ee22f0e1,
-        type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: Retry
       objectReference: {fileID: 0}
     - target: {fileID: 1672056236042145507, guid: 4e2f324b57b1abd4683bff52ee22f0e1,
         type: 3}
