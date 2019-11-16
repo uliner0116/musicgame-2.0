@@ -206,7 +206,11 @@ public class ListButton : MonoBehaviour
             {
                 //Debug.Log("not found this level!"+ songTxt.name);
                 this.gameObject.GetComponent<Button>().enabled = false;
-                t.color = new Color32(100, 100, 100, 128);
+                t.color = new Color32(100, 100, 100, 168);
+                t1.color = new Color32(100, 100, 100, 168);
+                t2.color = new Color32(100, 100, 100, 168);
+                t3.color = new Color32(100, 100, 100, 168);
+                piano.color = new Color32(100,100,100,168);
                 //按化處理
             }
         } else if (line == 6)
@@ -217,7 +221,11 @@ public class ListButton : MonoBehaviour
             {
                 //Debug.Log("not found this level!"+ songTxt.name);
                 this.gameObject.GetComponent<Button>().enabled = false;
-                t.color = new Color32(100,100,100,128);
+                t.color = new Color32(100,100,100,168);
+                t1.color = new Color32(100, 100, 100, 168);
+                t2.color = new Color32(100, 100, 100, 168);
+                t3.color = new Color32(100, 100, 100, 168);
+                piano.color = new Color32(100, 100, 100, 168);
                 //按化處理
             }
         }

@@ -1,6 +1,7 @@
 ﻿using System.Linq;
 using UnityEngine;
 using UnityEngine.UI;
+using System.Threading;
 
 namespace FancyScrollView.Example02
 {
@@ -130,8 +131,8 @@ namespace FancyScrollView.Example02
         }
         public void SW_Ch()
         {
-           
-            
+            Thread.Sleep(500);
+
             var items = Enumerable.Range(0, 15)
                 .Select(i => new ItemData(Chinese[i], Chinese[i]))
                 .ToArray();
@@ -155,8 +156,8 @@ namespace FancyScrollView.Example02
         }
         public void SW_En()
         {
-            
-            
+            Thread.Sleep(500);
+
             var items = Enumerable.Range(0, 11)
                 .Select(i => new ItemData(English[i], English[i]))
                 .ToArray();
@@ -180,8 +181,8 @@ namespace FancyScrollView.Example02
         }
         public void SW_Jp()
         {
-            
-           
+            Thread.Sleep(500);
+
             var items = Enumerable.Range(0, 10)
                 .Select(i => new ItemData(Janpan[i], Janpan[i]))
                 .ToArray();
@@ -205,8 +206,8 @@ namespace FancyScrollView.Example02
         }
         public void SW_Kr()
         {
-            
-            
+            Thread.Sleep(500);
+
             var items = Enumerable.Range(0, 10)
                 .Select(i => new ItemData(Korean[i], Korean[i]))
                 .ToArray();
@@ -230,8 +231,8 @@ namespace FancyScrollView.Example02
         }
         public void SW_ALL()
         {
-            
-            
+            Thread.Sleep(500);
+
             var items = Enumerable.Range(0, 46)
                 .Select(i => new ItemData(name[i], name[i]))
                 .ToArray();
