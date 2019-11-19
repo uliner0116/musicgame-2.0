@@ -517,7 +517,7 @@ Life = 2500;
 
         void OnNoteGood(int noteNumber)
         {
-            ShowMessage("Good", Color.green, noteNumber);
+            ShowMessage("Nice", Color.green, noteNumber);
             //Score += 300;
             ScoreDouble(300);
             Combo++;

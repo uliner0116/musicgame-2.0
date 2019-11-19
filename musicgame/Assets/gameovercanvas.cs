@@ -76,14 +76,14 @@ public class gameovercanvas : MonoBehaviour
 
         finalcombo.text = string.Format("Combo: {0}", combo);
         Debug.Log("Combo:" + combo);
-        string perfectText = "Perfect:" + perfectpersent.ToString("#0.0") + "%";
+        string perfectText = ("Perfect:" + songData.perfectNum + "(" + perfectpersent.ToString("#0.0") + "%" + ")");
         Debug.Log("perfectText:" + perfectText);
       //  HighScore.text = string.Format("HighScore: {0}", myBestScore);
         perfectP.text = string.Format(perfectText);
-        greatP.text = string.Format("Great:"+ greattpersent.ToString("#0.0") + "%");
-        goodP.text = string.Format("Good:"+ goodpersent.ToString("#0.0") + "%");
-        badP.text = string.Format("Bad:"+ badpersent.ToString("#0.0") + "%");
-        missP.text = string.Format("Miss:"+ misspersent.ToString("#0.0") + "%");
+        greatP.text = string.Format("Great:"+ songData.greatNum + "(" + greattpersent.ToString("#0.0") + "%" + ")");
+        goodP.text = string.Format("Nice:"+ songData.goodNum + "(" + goodpersent.ToString("#0.0") + "%" + ")");
+        badP.text = string.Format("Bad:"+ songData.badNum + "(" + badpersent.ToString("#0.0") + "%" + ")");
+        missP.text = string.Format("Miss:"+ songData.missNum + "(" + misspersent.ToString("#0.0") + "%" + ")");
 
         //最高紀錄分數條
         HighScoreStrip.maxValue = maxScore;
@@ -93,7 +93,7 @@ public class gameovercanvas : MonoBehaviour
       //  Debug.Log("HighScore:" + myBestScore);
         Debug.Log("Perfect:" + perfectpersent.ToString("#0.0"));
         Debug.Log("Great:" + greattpersent.ToString("#0.0"));
-        Debug.Log("Good:" + goodpersent.ToString("#0.0"));
+        Debug.Log("Nice:" + goodpersent.ToString("#0.0"));
         Debug.Log("Bad:" + badpersent.ToString("#0.0"));
         Debug.Log("Miss:" + misspersent.ToString("#0.0"));
        

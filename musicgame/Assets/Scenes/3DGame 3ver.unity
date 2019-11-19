@@ -4144,7 +4144,7 @@ MonoBehaviour:
   songName: 
   maxScore: 0
   gameOverPanel: {fileID: 1193118229}
-  gameOverCanvasPrefab: {fileID: 4558817221477022945, guid: 94584587cf1e1b746bb4aa1e3b78ea4f,
+  gameOverCanvasPrefab: {fileID: 4358591527304980761, guid: 94584587cf1e1b746bb4aa1e3b78ea4f,
     type: 3}
   randomTiming: 0
 --- !u!114 &1452424331

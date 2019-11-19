@@ -157,7 +157,7 @@ MonoBehaviour:
   page: {fileID: 1354334569}
   mainMenuSceneName: Menu
   gameName: Game
-  gameOverCanvasPrefab: {fileID: 4558817221477022945, guid: 94584587cf1e1b746bb4aa1e3b78ea4f,
+  gameOverCanvasPrefab: {fileID: 4358591527304980761, guid: 94584587cf1e1b746bb4aa1e3b78ea4f,
     type: 3}
   m_screenPos: {x: 0, y: 0}
   name: 
@@ -4994,6 +4994,11 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6311184307168411169, guid: 4e2f324b57b1abd4683bff52ee22f0e1,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 76563175}
     - target: {fileID: 6311184306541717576, guid: 4e2f324b57b1abd4683bff52ee22f0e1,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -5099,11 +5104,6 @@ PrefabInstance:
       propertyPath: m_Pivot.y
       value: 0.5
       objectReference: {fileID: 0}
-    - target: {fileID: 6311184307168411169, guid: 4e2f324b57b1abd4683bff52ee22f0e1,
-        type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
-      value: 
-      objectReference: {fileID: 76563175}
     - target: {fileID: 1672056236042145507, guid: 4e2f324b57b1abd4683bff52ee22f0e1,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
