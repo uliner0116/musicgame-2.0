@@ -270,14 +270,14 @@ Life = 2500;
             //TimeText.text = string.Format("Time: {0}", time1);
             //Debug.Log("遊戲時間為:"+Time.time);
             // キーボード入力も可能に
-            /*for (var i = 0; i < keys.Length; i++)
+            for (var i = 0; i < keys.Length; i++)
             {
                 //接收觸及改這邊
                 if (Input.GetKeyDown(keys[i]))
                 {
-                    noteButtons[i].onClick.Invoke();
+                    Tap(i);
                 }
-            }*/
+            }
 
             /* Dictionary<GameObject, TouchPhase> tapinfo = OnTouchPhase();
              foreach (var key in tapinfo.Keys)
