@@ -14,8 +14,10 @@ namespace FancyScrollView.Example03
         [SerializeField] Button Swich_Jp = default;
         [SerializeField] Button Swich_Kr = default;
         [SerializeField] Button Swich_ALL = default;
+        [SerializeField] Button Mask = default;
         [SerializeField] Text Language = default;
         public GameObject page;
+
         public AudioSource audioBgm;
         string songName;
         int listNumber = 0;
@@ -46,6 +48,7 @@ namespace FancyScrollView.Example03
             Swich_Jp.onClick.AddListener(SW_Jp);
             Swich_Kr.onClick.AddListener(SW_Kr);
             Swich_ALL.onClick.AddListener(SW_ALL);
+            Mask.onClick.AddListener(mask);
             scrollView.OnSelectionChanged(OnSelectionChanged);
             
             var items = Enumerable.Range(0,46)
@@ -115,6 +118,10 @@ namespace FancyScrollView.Example03
             { page.SetActive(true); }
             else
             { page.SetActive(false); }
+        }
+        public void mask()
+        {
+            page.SetActive(false);
         }
         public void SW_Ch()
         {
