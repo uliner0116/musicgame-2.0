@@ -17,7 +17,7 @@ public class gameovercanvas : MonoBehaviour
     public Text missP;
     public Slider ScoreStrip;
     public Slider HighScoreStrip;
-
+    public GameObject effect;
     int score;
     int combo;
     float perfectpersent;
@@ -45,6 +45,7 @@ public class gameovercanvas : MonoBehaviour
         if (score > myBestScore)
         {
             updateMaxScore(score);
+            effect.SetActive(true);
         }
         load();
         //級距%數

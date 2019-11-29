@@ -32,4 +32,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/3DGame 6ver.unity
     guid: b3ccb57721790f949af0b6442f07c91e
+  - enabled: 1
+    path: Assets/Scenes/Score.unity
+    guid: d2a6155412e8e8a49b8f61f7410a5ebf
   m_configObjects: {}

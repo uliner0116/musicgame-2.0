@@ -55,7 +55,7 @@ public class Settings : MonoBehaviour
 
     [SerializeField]
     GameObject gameOverPanel;
-    public GameObject gameOverCanvasPrefab;
+  //  public GameObject gameOverCanvasPrefab;
 
     [SerializeField]
     private bool randomTiming;
@@ -162,7 +162,8 @@ public class Settings : MonoBehaviour
         Debug.Log("maxScore:" + songData.maxScore);
         Debug.Log("score:" + songData.score);
         Debug.Log("combo:" + songData.maxCombo);
-        Instantiate(gameOverCanvasPrefab, Vector2.zero, Quaternion.identity);
+        SceneManager.LoadScene("Score");
+        //Instantiate(gameOverCanvasPrefab, Vector2.zero, Quaternion.identity);
     }
 
     void setMaxScore()

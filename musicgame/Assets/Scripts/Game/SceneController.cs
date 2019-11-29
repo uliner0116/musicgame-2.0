@@ -20,7 +20,7 @@ namespace Game
         public string mainMenuSceneName;
         public string gameName;
         private bool pauseEnabled = false;
-        public GameObject gameOverCanvasPrefab;
+       // public GameObject gameOverCanvasPrefab;
 
         public const float PRE_NOTE_SPAWN_TIME = 3f;
         public const float PERFECT_BORDER = 0.05f;
@@ -362,7 +362,8 @@ Life = 2500;
             Debug.Log("good:" + goodNum);
             Debug.Log("bad:" + badNum);
             Debug.Log("miss:" + missNum);
-            Instantiate(gameOverCanvasPrefab, Vector2.zero, Quaternion.identity);
+            SceneManager.LoadScene("Score");
+            // Instantiate(gameOverCanvasPrefab, Vector2.zero, Quaternion.identity);
         }
         public void loadVolume(string name)
         {
