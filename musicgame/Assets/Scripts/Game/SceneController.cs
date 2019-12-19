@@ -16,6 +16,7 @@ namespace Game
 {
     public class SceneController : MonoBehaviour
     {
+        private int before = 6;
         public GameObject page;
         public string mainMenuSceneName;
         public string gameName;
@@ -27,7 +28,7 @@ namespace Game
         public const float GREAT_BORDER = 0.1f;
         public const float GOOD_BORDER = 0.2f;
         public const float BAD_BORDER = 0.5f;
-        public Vector2 m_screenPos = new Vector2();
+        public Vector2[] m_screenPos = new Vector2[3];
         int listNumber = 0;
         string[] songList = new string[]{
             "butterfly" ,"Don't say lazy" ,"Im sorry" ,"LATATA" ,"LOVE" ,"Mirotic" ,"Oh!" ,"One Night In 北京" ,"PON PON PON" ,"Roly Poly" ,"SORRY SORRY" ,"Trouble Maker" ,"Tunak Tunak Tun" ,
@@ -528,7 +529,7 @@ Life = 2500;
         void OnNoteBad(int noteNumber)
         {
             ShowMessage("Bad", Color.gray, noteNumber);
-            Life--;
+            //Life--;
             Combo = 0;
             badNum++;
         }
@@ -661,18 +662,23 @@ Life = 2500;
                 return false;
 
             //1個手指觸碰螢幕
-            if (Input.touchCount == 1)
+            if (Input.touchCount >= 1 && Input.touchCount<=3)
             {
                 //開始觸碰
-                if (Input.touches[0].phase == TouchPhase.Began)
-                {
+
                     Debug.Log("Began");
                     //紀錄觸碰位置
-                    m_screenPos = Input.touches[0].position;
+                    for(int i=0;i< Input.touches.Length; i++)
+                    {
+                    if (Input.touches[i].phase == TouchPhase.Began)
+                    {
+                        m_screenPos[i] = Input.touches[i].position;
+                    }
+                    }
 
                     return true;
                     //手指移動
-                }
+                
                 /*else if (Input.touches[0].phase == TouchPhase.Moved)
                 {
                     Debug.Log("Moved");
@@ -760,64 +766,87 @@ Life = 2500;
             //利用数学公事　(x1 – x2)2 + (y1 – y2)2 < (r1 + r2)2
             //判断点是在蓝盘中还是红盘中
 
-            bool yisrange = false;
-            if(m_screenPos.y<=300 && m_screenPos.y >= 40)
+            
+            for (int i = 0; i < m_screenPos.Length; i++)
             {
-                yisrange = true;
-            }
-            if(Line == 6)
-            {
-         
-            if (m_screenPos.x<320 && m_screenPos.x>0 && yisrange)
-            {
-                touchText.text = string.Format("radius:" + 0);
-                return 0;
-            }
-            else if (m_screenPos.x < 640 && m_screenPos.x > 320 && yisrange)
-            {
-                touchText.text = string.Format("radius:" + 1);
-                return 1;
-            }
-            else if (m_screenPos.x < 960 && m_screenPos.x > 640 && yisrange)
-            {
-                touchText.text = string.Format("radius:" + 2);
-                return 2;
-            }
-            else if (m_screenPos.x < 1280 && m_screenPos.x > 960 && yisrange)
-            {
-                touchText.text = string.Format("radius:" + 3);
-                return 3;
-            }
-            else if (m_screenPos.x < 1600 && m_screenPos.x > 1280 && yisrange)
-            {
-                touchText.text = string.Format("radius:" + 4);
-                return 4;
-            }
-            else if (m_screenPos.x < 1920 && m_screenPos.x > 1600 && yisrange)
-            {
-                touchText.text = string.Format("radius:" + 5);
-                return 5;
-            }
-            else return 6;
-            }else if(Line == 3)
-            {
-                if (m_screenPos.x < 640 && m_screenPos.x > 0 && yisrange)
+                bool yisrange = false;
+                if (m_screenPos[i].y <= 300 && m_screenPos[i].y >= 40)
                 {
-                    touchText.text = string.Format("radius:" + 0);
-                    return 0;
+                    yisrange = true;
                 }
-                else if (m_screenPos.x < 1280 && m_screenPos.x > 640 && yisrange)
+                if (Line == 6)
                 {
-                    touchText.text = string.Format("radius:" + 1);
-                    return 1;
+
+                    if (m_screenPos[i].x < 320 && m_screenPos[i].x > 0 && yisrange && before !=0)
+                    {
+                        touchText.text = string.Format("radius:" + 0);
+                        before = 0;
+                        return 0;
+                    }
+                    else if (m_screenPos[i].x < 640 && m_screenPos[i].x > 320 && yisrange && before != 1)
+                    {
+                        touchText.text = string.Format("radius:" + 1);
+                        before = 1;
+                        return 1;
+                    }
+                    else if (m_screenPos[i].x < 960 && m_screenPos[i].x > 640 && yisrange && before != 2)
+                    {
+                        touchText.text = string.Format("radius:" + 2);
+                        before = 2;
+                        return 2;
+                    }
+                    else if (m_screenPos[i].x < 1280 && m_screenPos[i].x > 960 && yisrange && before != 3)
+                    {
+                        touchText.text = string.Format("radius:" + 3);
+                        before = 3;
+                        return 3;
+                    }
+                    else if (m_screenPos[i].x < 1600 && m_screenPos[i].x > 1280 && yisrange && before != 4)
+                    {
+                        touchText.text = string.Format("radius:" + 4);
+                        before = 4;
+                        return 4;
+                    }
+                    else if (m_screenPos[i].x < 1920 && m_screenPos[i].x > 1600 && yisrange && before != 5)
+                    {
+                        touchText.text = string.Format("radius:" + 5);
+                        before = 5;
+                        return 5;
+                    }
+                    else
+                    {
+                        return 6;
+                    }
                 }
-                else if (m_screenPos.x < 1920 && m_screenPos.x > 1280 && yisrange)
+                else if (Line == 3)
                 {
-                    touchText.text = string.Format("radius:" + 2);
-                    return 2;
+                    if (m_screenPos[i].x < 640 && m_screenPos[i].x > 0 && yisrange && before != 0)
+                    {
+                        touchText.text = string.Format("radius:" + 0);
+                        before = 0;
+                        return 0;
+                    }
+                    else if (m_screenPos[i].x < 1280 && m_screenPos[i].x > 640 && yisrange && before != 1)
+                    {
+                        touchText.text = string.Format("radius:" + 1);
+                        before = 1;
+                        return 1;
+                    }
+                    else if (m_screenPos[i].x < 1920 && m_screenPos[i].x > 1280 && yisrange && before != 2)
+                    {
+                        touchText.text = string.Format("radius:" + 2);
+                        before = 2;
+                        return 2;
+                    }
+
+                    else
+                    {
+                        return 6;
+                    }
                 }
-                else return 6;
+                
             }
+            before = 0;
             return 6;
         }
     }

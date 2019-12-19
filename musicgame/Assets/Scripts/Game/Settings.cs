@@ -223,7 +223,7 @@ public class Settings : MonoBehaviour
                 Count++;
                 comment.text = "Bad!!" ;
                 comment.gameObject.SetActive(true);
-                Life--;
+                //Life--;
                 Combo = 0;
                 badNum++;
                 break;

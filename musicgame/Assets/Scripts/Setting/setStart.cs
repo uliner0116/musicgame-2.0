@@ -1,43 +1,50 @@
-﻿using Common;
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using System.IO;
 using UnityEngine;
-using UnityEngine.SceneManagement;
-using UnityEngine.UI;
 
-public class SettingChange : MonoBehaviour
+public class setStart : MonoBehaviour
 {
-
-    // public GameObject MusicPlayer;
-    public AudioSource audioNote;
-    public Text noteNumberText;
-    int noteNumber = 0;
+    private string txtName;
     public AudioSource[] notePlayer;
-
-    // Use this for initialization
+    // Start is called before the first frame update
     void Start()
     {
-        this.GetComponent<Button>().onClick.AddListener(SettingChangeClick);
+        txtName = "notePlay";
+
+        FileInfo fi = new FileInfo(Application.persistentDataPath + "/" + txtName);
+        if (fi.Exists)
+        {
+            //Debug.Log("File Exists! Began To Read." + fi);
+        }
+        else
+        {
+            setNote(txtName);
+        }
+        txtName = "audioNote";
+        FileInfo fi1 = new FileInfo(Application.persistentDataPath + "/" + txtName);
+        if (fi1.Exists)
+        {
+            //Debug.Log("File Exists! Began To Read." + fi1);
+        }
+        else
+        {
+            setVolume(txtName);
+        }
+
+
     }
 
     // Update is called once per frame
     void Update()
     {
-
+        
     }
 
-    public void SettingChangeClick()
-    {
-        setVolume("audioNote", audioNote);
-        setNote("notePlay");
-     //   SceneManager.LoadScene("Menu");
-    }
-
-    void setVolume(string Name, AudioSource audio)
+    void setVolume(string Name)
     {
         volumeState myVlume = new volumeState();
-        myVlume.volume = audio.volume;
+        myVlume.volume = 1;
         //將myPlayer轉換成json格式的字串
         string saveString = JsonUtility.ToJson(myVlume);
         //將字串saveString存到硬碟中
@@ -48,15 +55,7 @@ public class SettingChange : MonoBehaviour
     void setNote(string Name)
     {
         noteState myNote = new noteState();
-        if (string.Compare(noteNumberText.text, "X") == 0)
-        {
-            noteNumber = 5;
-        }
-        else
-        {
-            noteNumber = int.Parse(noteNumberText.text);
-        }      
-        int playNumber = noteNumber - 1;
+        int playNumber = 3;
         myNote.noteAudio = notePlayer[playNumber].clip;
         //將myPlayer轉換成json格式的字串
         string saveString = JsonUtility.ToJson(myNote);
@@ -65,6 +64,7 @@ public class SettingChange : MonoBehaviour
         file.Write(saveString);
         file.Close();
     }
+
     public class volumeState
     {
         public float volume;
